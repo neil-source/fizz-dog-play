@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#090d18">
+  <title>Dead Center</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="gameShell">
+    <canvas id="game" width="512" height="288" aria-label="Dead Center pixel survival game"></canvas>
+    <p class="rotate-message">TURN YOUR DEVICE SIDEWAYS FOR A BIGGER GAME</p>
+    <div class="crt" aria-hidden="true"></div>
+
+    <section id="hud" class="hud hidden" aria-label="Game status">
+      <div class="level-block"><small>LEVEL</small><strong id="levelValue">01</strong></div>
+      <div id="babyHud" class="baby-hud" aria-label="Baby buffs and fake teeth">
+        <span class="teeth-chip"><i id="teethIcon" class="teeth-icon" aria-hidden="true"></i><small>FAKE TEETH</small><b id="teethValue">0</b></span>
+        <span id="babyBuffs" class="baby-buffs"></span>
+      </div>
+      <div class="health-block">
+        <span id="healthIcon" class="hud-item-art health-art" aria-hidden="true"></span>
+        <div class="health-details">
+          <div class="hud-label"><span>HEALTH</span><b id="healthText">100 / 100</b></div>
+          <div class="health-track"><i id="healthFill"></i></div>
+        </div>
+      </div>
+      <div id="waveBlock" class="wave-block">
+        <span class="hud-item-art timer-art" aria-hidden="true"></span>
+        <span class="wave-copy"><small>TIME LEFT</small><strong id="zombieValue">0:20</strong></span>
+        <span class="wave-progress" aria-hidden="true"><i id="waveProgress"></i></span>
+      </div>
+      <div class="weapon-block">
+        <span id="weaponIcons" class="weapon-arts" aria-hidden="true"><span id="weaponIcon" class="weapon-art"></span><span id="weaponIcon2" class="weapon-art hidden"></span></span>
+        <span class="weapon-copy"><small id="weaponName">PISTOL</small><strong id="ammoValue">10 / 10</strong><i id="reloadText"></i></span>
+      </div>
+      <div id="gameTip" class="game-tip hidden" role="status"></div>
+      <button id="pauseButton" type="button" aria-label="Pause game">Ⅱ</button>
+    </section>
+
+    <section id="titleScreen" class="screen title-screen visible">
+      <div class="eyebrow">NIGHT 01 · NO WAY OUT</div>
+      <h1><span>DEAD</span><b>CENTER</b></h1>
+      <p class="tagline">HOLD THE MIDDLE. SURVIVE THE NIGHT.</p>
+      <div class="hero-scene" aria-hidden="true">
+        <i class="zombie left"></i><i class="hero"></i><i class="zombie right"></i>
+      </div>
+      <div class="quick-guide" aria-label="How to play">
+        <div><b><i>1</i> SURVIVE</b><span>Stay alive until the timer reaches zero.</span></div>
+        <div><b><i>2</i> EARN TEETH</b><span>Defeat enemies to collect fake teeth.</span></div>
+        <div><b><i>3</i> GEAR UP</b><span>Buy guns and gear between rounds.</span></div>
+      </div>
+      <button id="startButton" class="primary" type="button"><b>START SURVIVING</b><small>CLICK OR PRESS ENTER</small></button>
+      <div class="controls">
+        <span><kbd>A / D</kbd> MOVE</span><span><kbd>HOLD CLICK</kbd> AIM + SHOOT</span><span><kbd>SPACE</kbd> JUMP</span>
+      </div>
+      <p class="controls-extra">GUNS RELOAD AUTOMATICALLY · TWO GUNS FIRE TOGETHER · ESC PAUSE</p>
+      <div id="controllerCard" class="controller-card"><i></i><span><b>PS5 CONTROLLER</b><small id="controllerStatus">PRESS A BUTTON TO CONNECT</small></span></div>
+      <p class="best">BEST: LEVEL <b id="bestWave">00</b></p>
+    </section>
+
+    <section id="upgradeScreen" class="screen upgrade-screen" aria-live="polite">
+      <p class="eyebrow">LEVEL <span id="clearedLevel">01</span> CLEARED</p>
+      <h2>FAKE TEETH SHOP</h2>
+      <div class="shop-bank"><i class="teeth-icon" aria-hidden="true"></i><strong id="shopBank">0</strong><span>FAKE TEETH</span></div>
+      <p class="shop-tip">BUY CARDS ON THE LEFT · CLICK YOUR BUILD TO SWAP OWNED GEAR · DEL TWICE TO DELETE A GUN</p>
+      <div class="shop-main">
+        <section class="offers-panel" aria-label="Shop picks">
+          <div class="offers-heading"><h3>SHOP PICKS</h3><span>4 ITEMS EACH ROLL</span></div>
+          <div id="upgradeCards" class="upgrade-cards shop-offers" aria-label="Four shop offers"></div>
+          <button id="rerollButton" class="reroll-button" type="button"><b>REROLL SHOP</b><small id="rerollCost">2 FAKE TEETH</small></button>
+        </section>
+        <section class="equipment-panel" aria-label="Character stats, weapons, and items">
+          <div class="equipment-heading"><h3>YOUR BUILD</h3><span>CLICK A SLOT TO SWAP</span></div>
+          <div class="build-overview">
+            <canvas id="loadoutPreview" width="160" height="128" aria-label="Character wearing equipped items"></canvas>
+            <div id="buildStats" class="build-stats" aria-label="Current character stats"></div>
+          </div>
+          <div class="build-section">
+            <div class="build-section-heading"><b>WEAPONS</b><span id="weaponCount">1 / 2 · BUY A GUN</span></div>
+            <div class="build-weapon-row">
+              <div class="weapon-slot-wrap"><button class="equip-slot slot-gun1" data-slot="gun1" type="button"></button><button class="gun-delete hidden" data-gun-slot="gun1" type="button" title="Delete this gun; click twice to confirm">DEL</button></div>
+              <div class="weapon-slot-wrap"><button class="equip-slot slot-gun2" data-slot="gun2" type="button"></button><button class="gun-delete hidden" data-gun-slot="gun2" type="button" title="Delete this gun; click twice to confirm">DEL</button></div>
+            </div>
+          </div>
+          <div class="build-section">
+            <div class="build-section-heading"><b>ITEMS</b><span id="itemCount">0 EQUIPPED · 0 BUFFS</span></div>
+            <div class="build-item-row">
+              <button class="equip-slot slot-head" data-slot="head" type="button"></button>
+              <button class="equip-slot slot-hands" data-slot="hands" type="button"></button>
+              <button class="equip-slot slot-body" data-slot="body" type="button"></button>
+              <button class="equip-slot slot-feet" data-slot="feet" type="button"></button>
+              <button class="equip-slot slot-baby" data-slot="baby" type="button"></button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <button id="nextRoundButton" class="primary next-round" type="button"><b>START NEXT ROUND</b><small>SELECT THIS BUTTON OR PRESS OPTIONS</small></button>
+      <div class="upgrade-hint"><span><b>MOVE</b> ARROWS / D-PAD</span><span><b>BUY / SWAP</b> ENTER / ×</span><span><b>LOCK</b> L / □</span><span><b>REROLL</b> R / △</span><span><b>FIGHT</b> OPTIONS OR START BUTTON</span></div>
+    </section>
+
+    <section id="pauseScreen" class="screen pause-screen">
+      <p class="eyebrow">GAME PAUSED</p>
+      <h2>CATCH YOUR BREATH</h2>
+      <button id="resumeButton" class="primary" type="button"><b>KEEP FIGHTING</b><small>PRESS ESC</small></button>
+      <button id="pauseRestartButton" class="text-button" type="button">RESTART RUN</button>
+    </section>
+
+    <section id="gameOverScreen" class="screen game-over-screen" aria-live="assertive">
+      <p class="eyebrow">THE HORDE GOT YOU</p>
+      <h2>RUN OVER</h2>
+      <div class="run-stats">
+        <span><small>LEVEL</small><b id="finalLevel">01</b></span>
+        <span><small>KILLS</small><b id="finalKills">0</b></span>
+        <span><small>SCORE</small><b id="finalScore">0</b></span>
+      </div>
+      <button id="restartButton" class="primary" type="button"><b>TRY AGAIN</b><small>PRESS ENTER</small></button>
+    </section>
+
+    <div id="waveBanner" class="wave-banner" aria-live="polite"><small>LEVEL 01</small><b>STAY ALIVE</b></div>
+
+    <div id="touchControls" class="touch-controls" aria-label="Touch controls">
+      <div class="touch-move"><button data-control="left" aria-label="Move left">◀</button><button data-control="right" aria-label="Move right">▶</button></div>
+      <div class="touch-actions"><button data-control="jump" aria-label="Jump">↑</button><button class="shoot" data-control="shoot" aria-label="Shoot">●</button></div>
+    </div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

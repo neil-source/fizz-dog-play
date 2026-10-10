@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4d97ff">
+  <meta name="description" content="Walk the dog through Fizz Dog and pick a game to play.">
+  <title>Fizz Dog · Pick a game</title>
+  <link rel="icon" type="image/png" href="./art/dog/favicon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./dog-art.js" defer></script>
+  <script src="./settings.js" defer></script>
+  <script src="./platformer.js" defer></script>
+  
+</head>
+<body>
+  <main class="game-shell" aria-label="Fizz Dog game gallery">
+    <header class="top-bar">
+      <a class="brand" href="./" aria-label="Fizz Dog home">fizz<span>dog</span></a>
+      <div class="header-actions"><span class="game-count" data-i18n="gameCount">10 games to play</span><button class="settings-trigger" id="settings-trigger" type="button" aria-label="Settings" data-i18n-aria="settings"><span aria-hidden="true">⚙</span><span class="settings-label" data-i18n="settings">Settings</span></button></div>
+    </header>
+
+    <div class="play-hint"><strong data-i18n="walkToGame">WALK TO A GAME</strong><span class="keyboard-hint" data-i18n="keyboardHint">A / D or ← → to move · Space to jump</span><span class="touch-hint" data-i18n="touchHint">Use the buttons to move and jump</span><span class="controller-hint" data-i18n="controllerHint">Stick / D-pad move · ✕ jump · □ play</span></div>
+
+    <div class="cover-layer" id="cover-layer" aria-label="Games">
+      <a class="game-cover ink" data-portal="ink-fight" href="https://ink-fight.onrender.com" aria-label="Play Ink Fight">
+        <div class="cover-art"><img src="./art/ink-fight-front.webp" alt="Ink Fight opening screen"></div>
+        <div class="cover-footer"><div><small>01 / 10</small><strong>Ink Fight</strong><span data-i18n="inkSubtitle">Paper arena brawler</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+      <a class="game-cover sketch" data-portal="sketchbound" href="./play/sketchbound/" aria-label="Play Sketchbound">
+        <div class="cover-art"><img src="./art/sketchbound-front.webp" alt="Sketchbound opening screen"></div>
+        <div class="cover-footer"><div><small>02 / 10</small><strong>Sketchbound</strong><span data-i18n="sketchSubtitle">Hand-drawn platformer</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+      <a class="game-cover exfil" data-portal="dmz-3d" href="./play/dmz-3d/" aria-label="Play EXFIL ZERO">
+        <div class="cover-art"><img src="./art/dmz-3d-front.webp" alt="EXFIL ZERO opening screen"></div>
+        <div class="cover-footer"><div><small>03 / 10</small><strong>EXFIL ZERO</strong><span data-i18n="exfilSubtitle">3D DMZ survival</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+      <a class="game-cover dmz" data-portal="dmz-2b" href="./play/dmz-2b/" aria-label="Play DMZ 2D">
+        <div class="cover-art"><img src="./art/dmz-2b-front.webp" alt="DMZ 2D opening screen"></div>
+        <div class="cover-footer"><div><small>04 / 10</small><strong>DMZ 2D</strong><span data-i18n="dmz2Subtitle">Pixel extraction</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+      <a class="game-cover dmz" data-portal="dmz-pixel" href="./play/dmz-pixel/" aria-label="Play DMZ Pixel">
+        <div class="cover-art"><img src="./art/dmz-pixel-front.webp" alt="DMZ Pixel opening screen"></div>
+        <div class="cover-footer"><div><small>05 / 10</small><strong>DMZ Pixel</strong><span data-i18n="dmzPixelSubtitle">Original extraction game</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+      <a class="game-cover dead" data-portal="dead-center" href="./play/dead-center/" aria-label="Play Dead Center">
+        <div class="cover-art"><img src="./art/dead-center-front.webp" alt="Dead Center opening screen"></div>
+        <div class="cover-footer"><div><small>06 / 10</small><strong>Dead Center</strong><span data-i18n="deadSubtitle">Survive the night</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+      <a class="game-cover bravo" data-portal="bravocado" href="./play/bravocado/" aria-label="Play Bravocado">
+        <div class="cover-art"><img src="./art/bravocado-front.webp" alt="Bravocado opening screen"></div>
+        <div class="cover-footer"><div><small>07 / 10</small><strong>Bravocado</strong><span data-i18n="bravoSubtitle">Grove survivor</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+      <a class="game-cover cup" data-portal="manabi-cup" href="./play/manabi-cup/" aria-label="Play Manabi Cup">
+        <div class="cover-art"><img src="./art/manabi-cup-front.webp" alt="Manabi Cup opening screen"></div>
+        <div class="cover-footer"><div><small>08 / 10</small><strong>Manabi Cup</strong><span data-i18n="cupSubtitle">Grade 1–6 math game</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+      <a class="game-cover royale" data-portal="battle-royale" href="https://battleroyalefile.onrender.com" aria-label="Play Battle Royale">
+        <div class="cover-art"><img src="./art/battle-royale-front.webp" alt="Battle Royale opening screen"></div>
+        <div class="cover-footer"><div><small>09 / 10</small><strong>Battle Royale</strong><span data-i18n="royaleSubtitle">Multiplayer arena</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+      <a class="game-cover devil" data-portal="level-devil" href="./play/level-devil/" aria-label="Play Level Devil">
+        <div class="cover-art"><img src="./art/level-devil-front.webp" alt="Level Devil opening room"></div>
+        <div class="cover-footer"><div><small>10 / 10</small><strong>Level Devil</strong><span data-i18n="devilSubtitle">Trick platformer</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+      </a>
+    </div>
+
+    <canvas id="game" tabindex="0" aria-label="Move the dog with A and D, arrow keys, touch buttons, or a controller stick or D-pad. Jump with Space, W, Up, or the controller Cross button. Press E or the controller Square button near a game cover to play it." data-i18n-aria="canvasHelp"></canvas>
+    <div class="art-status" id="art-status" role="status" data-i18n="loadingArt">Loading dog art…</div>
+    <div class="portal-prompt" id="portal-prompt" hidden><span id="portal-name"></span><button id="enter-portal" type="button" data-i18n="playGame">Play game</button><span class="key-hint">E or Enter</span><span class="pad-hint">□ or R1</span></div>
+    <div class="touch-controls" aria-label="Touch game controls">
+      <div class="move-controls"><button type="button" data-control="left" aria-label="Move left" data-i18n-aria="moveLeft">◀</button><button type="button" data-control="right" aria-label="Move right" data-i18n-aria="moveRight">▶</button></div>
+      <button class="jump-control" type="button" data-control="jump" aria-label="Jump" data-i18n-aria="jump" data-i18n="jump">JUMP</button>
+    </div>
+    <dialog class="settings-dialog" id="settings-dialog" aria-labelledby="settings-title">
+      <div class="settings-content">
+        <div class="request-heading"><div><small>FIZZ DOG</small><h2 id="settings-title" data-i18n="settings">Settings</h2></div><button id="settings-close" class="request-close" type="button" aria-label="Close settings" data-i18n-aria="closeSettings">×</button></div>
+        <p class="settings-intro" data-i18n="settingsIntro">Choose how Fizz Dog looks and controls. Your choices are saved on this device.</p>
+        <label for="settings-language" data-i18n="language">Language</label>
+        <select id="settings-language"><option value="auto" data-i18n="automatic">Automatic</option><option value="en">English</option><option value="ja">日本語</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option></select>
+        <label for="settings-device" data-i18n="device">Controls / device</label>
+        <select id="settings-device"><option value="auto" data-i18n="automatic">Automatic</option><option value="keyboard" data-i18n="keyboard">Keyboard</option><option value="touch" data-i18n="touch">Touch screen</option><option value="controller" data-i18n="controller">Controller</option></select>
+        <p class="settings-device-status" id="settings-device-status" role="status"></p>
+        <div class="settings-options"><label><input id="settings-large-text" type="checkbox"><span data-i18n="largeText">Larger text</span></label><label><input id="settings-high-contrast" type="checkbox"><span data-i18n="highContrast">High contrast</span></label><label><input id="settings-reduce-motion" type="checkbox"><span data-i18n="reduceMotion">Reduce motion</span></label></div>
+        <div class="settings-actions"><button id="settings-fullscreen" type="button" data-i18n="fullscreen">Full screen</button><button id="settings-reset" type="button" data-i18n="resetSettings">Reset settings</button></div>
+        <p class="settings-scope" data-i18n="settingsScope">These settings change the Fizz Dog gallery. Each game may have its own controls and language options.</p>
+      </div>
+    </dialog>
+    
+  </main>
+</body>
+</html>
