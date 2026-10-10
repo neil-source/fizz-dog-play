@@ -231,7 +231,7 @@
 
   async function loadAnimations() {
     if (typeof window.createDogAnimations !== "function") throw new Error("Dog art could not load");
-    const frames = window.createDogAnimations();
+    const frames = await window.createDogAnimations();
     for (const action of ["idle", "walk", "jump", "fall"]) {
       if (frames[action]?.length !== FRAME_COUNT) throw new Error("Dog " + action + " frames are missing");
     }
