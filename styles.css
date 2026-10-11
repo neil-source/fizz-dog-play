@@ -24,7 +24,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #ffad22;outline-offset:4p
 .cover-art{display:grid;place-items:center;width:100%;aspect-ratio:4/3;overflow:hidden}
 .cover-art img{display:block;width:100%;height:100%;object-fit:contain}
 .ink .cover-art{background:#171613}.dead .cover-art{background:#0a1021}.cup .cover-art{background:#fff4e2}.kanji .cover-art{background:#fff8e8}
-.sketch .cover-art{background:#ebe5da}.exfil .cover-art,.dmz .cover-art{background:#10180e}.bravo .cover-art{background:#142117}.royale .cover-art{background:#12121d}.devil .cover-art{background:#30242c}
+.sketch .cover-art{background:#ebe5da}.exfil .cover-art,.dmz .cover-art{background:#10180e}.bravo .cover-art{background:#142117}.royale .cover-art{background:#12121d}.devil .cover-art{background:#30242c}.flight .cover-art{background:#0e1129}
 .cover-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:76px;padding:11px 15px;border-top:3px solid #dce7f3;background:#fff}
 .cover-footer div{min-width:0}.cover-footer small,.cover-footer strong,.cover-footer span{display:block}
 .cover-footer small{color:#5b89bb;font-size:.67rem;font-weight:900;letter-spacing:.13em}
