@@ -101,3 +101,50 @@ body[data-input-mode="controller"] .controller-hint{display:inline}
 body[data-input-mode="auto"].gamepad-ready .touch-hint{display:none}
 body[data-input-mode="auto"].gamepad-ready .controller-hint{display:inline}
 @media(max-width:620px){.settings-options{grid-template-columns:1fr 1fr}.settings-intro,.settings-scope{font-size:.82rem}}
+
+/* Shitaky Games: warm paper and mushroom-red arcade chrome. */
+:root{color:#4a302a;background:#fff5e6}
+.game-shell{background:#fff5e6}
+.top-bar{background:#e83f39;border-color:#a92f2c}
+.brand{display:inline-flex;align-items:center;gap:8px;color:#fff7e7;letter-spacing:-.05em}
+.brand img{width:36px;height:36px;object-fit:contain;image-rendering:pixelated}
+.brand span{margin-left:0;color:#ffe1a1}
+.request-trigger{background:#f7b849;color:#3d2721}
+.request-trigger:hover{background:#ffd077}
+.settings-trigger{background:#b83431}
+.settings-trigger:hover{background:#9e2928}
+.play-hint{border-color:#d7a99a;background:#fffcf4;color:#684438;box-shadow:0 4px 0 #6e3d2d18}
+.play-hint strong{color:#c23a32}
+.game-cover{border-color:#5d4038;color:#4a302a;box-shadow:0 11px 0 #68452d2a,0 18px 30px #53332220}
+.game-cover:hover,.game-cover.near{border-color:#e88f38;box-shadow:0 5px 0 #b776282f,0 12px 22px #53332222}
+.cover-footer{border-color:#ead9c3;background:#fffdf6}
+.cover-footer small{color:#b34a3e}
+.cover-footer span{color:#755d53}
+.play-chip{background:#f7b849;color:#3d2721}
+.art-status{border-color:#cfaa93;color:#624136}
+.portal-prompt{border-color:#6b4235;background:#fff9eb;color:#4a302a;box-shadow:0 5px 0 #5b362b80}
+.portal-prompt button{border-color:#ac3430;background:#e83f39}
+.portal-prompt button:hover{background:#cd332f}
+.touch-controls button{background:#bd4038e8;box-shadow:0 5px 0 #782b2788}
+.touch-controls button:active,.touch-controls button.pressed{box-shadow:0 2px 0 #782b2788}
+.action-controls{display:flex;align-items:end;gap:10px;pointer-events:none}
+.touch-controls .run-control{width:62px;height:62px;align-self:end;border-radius:16px;background:#a8312dee;font-size:.86rem;letter-spacing:.04em}
+.touch-controls .jump-control{background:#efab3aee;color:#392720}
+.request-dialog,.settings-dialog{border-color:#5d4038;background:#fff8ed;color:#4a302a}
+.request-dialog::backdrop,.settings-dialog::backdrop{background:#48251db5}
+.request-heading small{color:#bc3b35}
+.request-close{background:#f4e2cd;color:#5d4038}
+.request-dialog select,.request-dialog textarea,.settings-content select{border-color:#c9aa94;color:#4a302a}
+.settings-intro,.settings-scope,.request-note{color:#73584d}
+.settings-device-status,.request-feedback{color:#ae3b35}
+.settings-options label{border-color:#e0cbbb}
+.settings-options input{accent-color:#c93d36}
+.settings-actions button{border-color:#ba8775;background:#f7e5d1;color:#4a302a}
+.settings-actions button:hover{background:#f2d8bd}
+.request-send{border-color:#a9322d;background:#e83f39}
+.request-fallback a{color:#af3430}
+body.high-contrast .top-bar{background:#a51f1e;border-color:#681715}
+body.high-contrast .play-hint,body.high-contrast .portal-prompt,body.high-contrast .game-cover,body.high-contrast .settings-dialog,body.high-contrast .request-dialog{border-color:#321c17;color:#321c17}
+body.high-contrast .cover-footer span,body.high-contrast .settings-intro,body.high-contrast .settings-scope,body.high-contrast .request-note{color:#4a302a}
+@media(max-width:620px){.brand{font-size:1.18rem;gap:5px}.brand img{width:29px;height:29px}}
+@media(max-width:380px){.touch-controls .run-control{width:53px;height:53px}}

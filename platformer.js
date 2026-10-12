@@ -14,7 +14,7 @@
     x: 150, name: anchor.querySelector("strong").textContent, anchor
   }));
   const PLAYER_HEIGHT = 28;
-  const FRAME_COUNT = 30;
+  const FRAME_COUNT = 60;
   const STEP = 1 / 60;
   const GRAVITY = 9.81 * 80;
   const JUMP_HEIGHT = 58;
@@ -22,7 +22,7 @@
   const player = { x: 35, y: 0, vx: 0, vy: 0, onGround: true, facing: 1, action: "idle", actionTime: 0, walkDistance: 0 };
   const keys = new Set();
   const touchKeys = new Set();
-  const gamepadInput = { direction: 0, jump: false, play: false, menu: false, connected: false };
+  const gamepadInput = { direction: 0, jump: false, run: false, play: false, menu: false, connected: false };
   let animations = null;
   let viewWidth = 0;
   let viewHeight = 0;
@@ -66,7 +66,7 @@
   }
 
   function pressJump() { jumpBuffer = 0.13; }
-  const controlKeys = new Set(["arrowleft", "arrowright", "arrowup", "a", "d", "w", " ", "e", "enter"]);
+  const controlKeys = new Set(["arrowleft", "arrowright", "arrowup", "a", "d", "w", " ", "e", "enter", "shift"]);
   window.addEventListener("keydown", (event) => {
     if (requestDialog?.open || settingsDialog?.open ||
         (event.target.closest && event.target.closest("a, button, input, textarea, select, [contenteditable]"))) return;
@@ -117,6 +117,7 @@
     if (!pad) {
       gamepadInput.direction = 0;
       gamepadInput.jump = false;
+      gamepadInput.run = false;
       gamepadInput.play = false;
       gamepadInput.menu = false;
       return;
@@ -128,12 +129,14 @@
       window.FizzSettings?.handleGamepad(pad);
       gamepadInput.direction = 0;
       gamepadInput.jump = false;
+      gamepadInput.run = false;
       gamepadInput.play = false;
       return;
     }
     if (requestDialog?.open || !useGamepad) {
       gamepadInput.direction = 0;
       gamepadInput.jump = false;
+      gamepadInput.run = false;
       gamepadInput.play = false;
       return;
     }
@@ -144,6 +147,7 @@
     gamepadInput.direction = Number(right) - Number(left);
     const jump = pressed(pad, physicalButton(pad, 0)) || pressed(pad, 12);
     const play = pressed(pad, physicalButton(pad, 2)) || pressed(pad, 5);
+    gamepadInput.run = pressed(pad, 7);
     if (jump && !gamepadInput.jump) pressJump();
     if (play && !gamepadInput.play && nearPortal) enterPortal(nearPortal);
     gamepadInput.jump = jump;
@@ -157,8 +161,9 @@
     const left = keys.has("a") || keys.has("arrowleft") || touchKeys.has("left");
     const right = keys.has("d") || keys.has("arrowright") || touchKeys.has("right");
     const direction = Math.max(-1, Math.min(1, Number(right) - Number(left) + gamepadInput.direction));
+    const running = keys.has("shift") || touchKeys.has("run") || gamepadInput.run;
     if (direction) player.facing = direction;
-    player.vx = approach(player.vx, direction * 170, (direction ? 1000 : 1300) * dt);
+    player.vx = approach(player.vx, direction * (running ? 245 : 170), (direction ? 1000 : 1300) * dt);
     const oldX = player.x;
     player.x = Math.max(32, Math.min(worldWidth - 32, player.x + player.vx * dt));
     const moved = player.x - oldX;
@@ -180,7 +185,7 @@
       player.onGround = true;
     }
 
-    const nextAction = !player.onGround ? (player.vy < 0 ? "jump" : "fall") : Math.abs(player.vx) > 12 && Math.abs(moved) > 0.01 ? "walk" : "idle";
+    const nextAction = !player.onGround ? (player.vy < 0 ? "jump" : "fall") : Math.abs(player.vx) > 12 && Math.abs(moved) > 0.01 ? (running ? "run" : "walk") : "idle";
     if (nextAction !== player.action) { player.action = nextAction; player.actionTime = 0; }
     else player.actionTime += dt;
     const targetCamera = Math.max(0, Math.min(worldWidth - viewWidth, player.x - viewWidth * 0.5));
@@ -198,26 +203,22 @@
 
   function draw() {
     ctx.clearRect(0, 0, viewWidth, viewHeight);
-    ctx.fillStyle = "#dbeaf7";
+    ctx.fillStyle = "#ecd9b7";
     ctx.fillRect(0, groundY, viewWidth, viewHeight - groundY);
-    ctx.fillStyle = "#6a96bc";
+    ctx.fillStyle = "#bb775b";
     ctx.fillRect(0, groundY, viewWidth, 3);
     if (!animations) return;
-    const frame = player.action === "walk"
-      ? Math.floor(player.walkDistance / 5.5) % FRAME_COUNT
+    const frame = player.action === "walk" || player.action === "run"
+      ? Math.floor(player.walkDistance / (player.action === "run" ? 3.4 : 5.5)) % FRAME_COUNT
       : player.action === "idle"
         ? Math.floor(player.actionTime * 24) % FRAME_COUNT
         : Math.min(FRAME_COUNT - 1, Math.floor(player.actionTime * 60));
-    const sprite = animations[player.action][frame];
+    const direction = player.facing < 0 ? "left" : "right";
+    const action = player.action === "walk" || player.action === "run" ? `${player.action}-${direction}` : player.action;
+    const sheet = animations[action];
     const x = Math.round(player.x - cameraX - 32);
-    const y = Math.round(player.y + PLAYER_HEIGHT - 46);
-    ctx.save();
-    if (player.facing < 0) {
-      ctx.translate(x + 64, y);
-      ctx.scale(-1, 1);
-      ctx.drawImage(sprite, 0, 0, 64, 48);
-    } else ctx.drawImage(sprite, x, y, 64, 48);
-    ctx.restore();
+    const y = Math.round(player.y + PLAYER_HEIGHT - 50);
+    ctx.drawImage(sheet, (frame % 10) * 32, Math.floor(frame / 10) * 32, 32, 32, x, y, 64, 64);
   }
   function loop(now) {
     if (!lastTime) lastTime = now;
@@ -230,23 +231,27 @@
   }
 
   async function loadAnimations() {
-    if (typeof window.createDogAnimations !== "function") throw new Error("Dog art could not load");
-    const frames = await window.createDogAnimations();
-    for (const action of ["idle", "walk", "jump", "fall"]) {
-      if (frames[action]?.length !== FRAME_COUNT) throw new Error("Dog " + action + " frames are missing");
-    }
-    return frames;
+    if (typeof window.loadShitakySheets !== "function") throw new Error("Shitaky art could not load");
+    return window.loadShitakySheets();
   }
-  function countClippedFrames(framesByAction) {
+  function countClippedFrames(sheets) {
     let clipped = 0;
-    for (const frames of Object.values(framesByAction)) for (const sprite of frames) {
-      const data = sprite.getContext("2d").getImageData(0, 0, sprite.width, sprite.height).data;
-      let edge = false;
-      for (let y = 0; y < sprite.height && !edge; y++) for (let x = 0; x < sprite.width; x++) {
-        if ((x === 0 || y === 0 || x === sprite.width - 1 || y === sprite.height - 1) &&
-            data[(y * sprite.width + x) * 4 + 3]) { edge = true; break; }
+    const probe = document.createElement("canvas");
+    probe.width = 320;
+    probe.height = 192;
+    const pen = probe.getContext("2d", { willReadFrequently: true });
+    for (const sheet of Object.values(sheets)) {
+      pen.clearRect(0, 0, 320, 192);
+      pen.drawImage(sheet, 0, 0);
+      const data = pen.getImageData(0, 0, 320, 192).data;
+      for (let frame = 0; frame < FRAME_COUNT; frame++) {
+        const ox = (frame % 10) * 32, oy = Math.floor(frame / 10) * 32;
+        let edge = false;
+        for (let y = 0; y < 32 && !edge; y++) for (let x = 0; x < 32; x++) {
+          if ((x === 0 || y === 0 || x === 31 || y === 31) && data[((oy + y) * 320 + ox + x) * 4 + 3]) { edge = true; break; }
+        }
+        if (edge) clipped++;
       }
-      if (edge) clipped++;
     }
     return clipped;
   }
@@ -254,14 +259,21 @@
   resize();
   window.addEventListener("resize", resize);
   requestAnimationFrame(loop);
-  loadAnimations().then((frames) => {
-    animations = frames;
+  loadAnimations().then((sheets) => {
+    animations = sheets;
     artStatus.hidden = true;
-    window.__dogArcade = {
-      animationCounts: Object.fromEntries(Object.entries(frames).map(([name, sequence]) => [name, sequence.length])),
-      clippedFrames: countClippedFrames(frames),
+    window.__shitakyArcade = window.__dogArcade = {
+      animationCounts: Object.fromEntries(Object.keys(sheets).map((name) => [name, FRAME_COUNT])),
+      clippedFrames: countClippedFrames(sheets),
       player,
-      getFrame(action, index) { return frames[action]?.[index] || null; },
+      getFrame(action, index) {
+        const sheet = sheets[action];
+        if (!sheet || index < 0 || index >= FRAME_COUNT) return null;
+        const sprite = document.createElement("canvas");
+        sprite.width = sprite.height = 32;
+        sprite.getContext("2d").drawImage(sheet, (index % 10) * 32, Math.floor(index / 10) * 32, 32, 32, 0, 0, 32, 32);
+        return sprite;
+      },
       get cameraX() { return cameraX; },
       get worldWidth() { return worldWidth; },
       gravity: GRAVITY,
@@ -269,7 +281,7 @@
       get gamepad() { return { ...gamepadInput }; }
     };
   }).catch((error) => {
-    artStatus.textContent = window.FizzSettings?.t("artError") || "Dog art could not load. Please refresh.";
+    artStatus.textContent = window.FizzSettings?.t("artError") || "Shitaky art could not load. Please refresh.";
     console.error(error);
   });
 })();
