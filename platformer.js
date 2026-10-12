@@ -217,7 +217,7 @@
     const action = player.action === "idle" ? "idle" : `${player.action}-${direction}`;
     const sheet = animations[action];
     const x = Math.round(player.x - cameraX - 32);
-    const y = Math.round(player.y + PLAYER_HEIGHT - 50);
+    const y = Math.round(player.y + PLAYER_HEIGHT - 52);
     ctx.drawImage(sheet, (frame % 10) * 32, Math.floor(frame / 10) * 32, 32, 32, x, y, 64, 64);
   }
   function loop(now) {

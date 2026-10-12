@@ -9,7 +9,7 @@
         ? resolve([action, image])
         : reject(new Error(`Shitaky ${action} sheet has an unexpected size`));
       image.onerror = () => reject(new Error(`Shitaky ${action} sheet could not load`));
-      image.src = `./art/shitaky/${action}.png?v=3`;
+      image.src = `./art/shitaky/${action}.png?v=4`;
     })
   )));
 })();
