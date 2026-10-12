@@ -214,7 +214,7 @@
         ? Math.floor(player.actionTime * 24) % FRAME_COUNT
         : Math.min(FRAME_COUNT - 1, Math.floor(player.actionTime * 60));
     const direction = player.facing < 0 ? "left" : "right";
-    const action = player.action === "walk" || player.action === "run" ? `${player.action}-${direction}` : player.action;
+    const action = player.action === "idle" ? "idle" : `${player.action}-${direction}`;
     const sheet = animations[action];
     const x = Math.round(player.x - cameraX - 32);
     const y = Math.round(player.y + PLAYER_HEIGHT - 50);
