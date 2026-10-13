@@ -49,7 +49,7 @@ h1,h2,h3,p{overflow-wrap:break-word}
 .cover-art{display:grid;place-items:center;width:100%;aspect-ratio:4/3;overflow:hidden;background:#30231f}
 .cover-art img{display:block;width:100%;height:100%;object-fit:contain}
 .ink .cover-art{background:#171613}.dead .cover-art{background:#0a1021}.cup .cover-art{background:#fff4e2}
-.sketch .cover-art{background:#ebe5da}.exfil .cover-art,.dmz .cover-art{background:#10180e}.bravo .cover-art{background:#142117}.royale .cover-art{background:#12121d}.devil .cover-art{background:#30242c}.flight .cover-art{background:#0e1129}
+.sketch .cover-art{background:#ebe5da}.exfil .cover-art,.dmz .cover-art{background:#10180e}.bravo .cover-art{background:#142117}.kanji .cover-art{background:#fff3d2}.devil .cover-art{background:#30242c}.flight .cover-art{background:#0e1129}
 .cover-footer{min-height:82px;padding:11px 13px}
 .cover-footer div{min-width:0}.cover-footer small,.cover-footer strong,.cover-footer span{display:block}
 .cover-footer small{color:var(--red-dark);font-size:.61rem;font-weight:900;letter-spacing:.1em}
