@@ -9,8 +9,6 @@
   const menu = document.querySelector("#game-menu");
   const menuLabel = document.querySelector("#menu-label");
   const list = document.querySelector("#game-list");
-  const previous = document.querySelector("#previous-game");
-  const next = document.querySelector("#next-game");
   const direct = document.querySelector("#open-direct");
   const openLabel = document.querySelector("#open-label");
   const labels = {
@@ -34,8 +32,6 @@
   backLabel.textContent = copy.back;
   menuLabel.textContent = copy.games;
   openLabel.textContent = copy.open;
-  previous.setAttribute("aria-label", copy.previous);
-  next.setAttribute("aria-label", copy.next);
   direct.setAttribute("aria-label", copy.open);
   back.title = copy.hold;
   loading.textContent = copy.loading;
@@ -62,8 +58,6 @@
     back.href = `./?from=${encodeURIComponent(slug)}`;
     direct.href = game.url;
     direct.setAttribute("aria-label", `${copy.open}: ${game.name}`);
-    previous.dataset.game = games[(index - 1 + games.length) % games.length].slug;
-    next.dataset.game = games[(index + 1) % games.length].slug;
     for (const link of list.querySelectorAll("a[data-game]")) {
       if (link.dataset.game === slug) link.setAttribute("aria-current", "page");
       else link.removeAttribute("aria-current");
@@ -79,8 +73,6 @@
     loading.hidden = true;
     frame.focus();
   });
-  previous.addEventListener("click", () => show(previous.dataset.game, true));
-  next.addEventListener("click", () => show(next.dataset.game, true));
   list.addEventListener("click", (event) => {
     const link = event.target.closest("a[data-game]");
     if (!link) return;

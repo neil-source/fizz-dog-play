@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#4d97ff">
+  <meta name="theme-color" content="#c83d39">
   <title>Play · Shitaky Games</title>
   <link rel="icon" type="image/png" href="./art/shitaky/icon.png?v=4">
-  <link rel="stylesheet" href="./player.css?v=2">
-  <script src="./player.js?v=2" defer></script>
+  <link rel="stylesheet" href="./player.css?v=3">
+  <script src="./player.js?v=3" defer></script>
 </head>
 <body>
   <main class="player-shell">
@@ -15,9 +15,7 @@
       <a id="return-link" class="return-link" href="./"><span aria-hidden="true">←</span><span id="return-label">All games</span></a>
       <div class="game-heading"><img src="./art/shitaky/icon.png?v=4" alt=""><div><small>SHITAKY GAMES</small><strong id="game-title">Loading game…</strong></div></div>
       <nav class="player-actions" aria-label="Games">
-        <button id="previous-game" class="step-button" type="button" aria-label="Previous game">‹</button>
         <details id="game-menu" class="game-menu"><summary id="menu-label">Games</summary><div id="game-list" class="game-list"></div></details>
-        <button id="next-game" class="step-button" type="button" aria-label="Next game">›</button>
         <a id="open-direct" class="open-direct" href="./" target="_blank" rel="noopener noreferrer" aria-label="Open game in a new tab"><span aria-hidden="true">↗</span><span id="open-label">Open separately</span></a>
       </nav>
     </header>

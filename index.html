@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#4d97ff">
+  <meta name="theme-color" content="#c83d39">
   <meta name="description" content="Explore and play games at Shitaky Games.">
   <title>Shitaky Games · Explore games</title>
   <link rel="icon" type="image/png" href="./art/shitaky/icon.png?v=4">
-  <link rel="stylesheet" href="./styles.css?v=2">
-  <script src="./settings.js?v=2" defer></script>
-  <script src="./gallery.js?v=1" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=3">
+  <script src="./settings.js?v=3" defer></script>
+  <script src="./gallery.js?v=2" defer></script>
   
 </head>
 <body>
@@ -17,75 +17,71 @@
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="./" aria-label="Shitaky Games home"><img src="./art/shitaky/icon.png?v=4" alt="">shitaky<span>games</span></a>
-        <nav class="main-nav" aria-label="Main navigation"><a href="#discover" data-i18n="explore">Explore</a><a href="#all-games" data-i18n="allGames">All games</a></nav>
         <label class="header-search"><span aria-hidden="true">⌕</span><input id="game-search" type="search" autocomplete="off" placeholder="Search games" data-i18n-placeholder="searchGames" aria-label="Search games" data-i18n-aria="searchGames"></label>
         <div class="header-actions"><button class="settings-trigger" id="settings-trigger" type="button" aria-label="Settings" data-i18n-aria="settings"><span aria-hidden="true">⚙</span><span class="settings-label" data-i18n="settings">Settings</span></button></div>
       </div>
     </header>
     <div class="site-content">
-      <section class="welcome-banner" id="discover" aria-labelledby="welcome-title">
+      <section class="welcome-banner" aria-labelledby="welcome-title">
         <div class="welcome-copy">
           <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="welcomeEyebrow">A little place to play</span></p>
           <h1 id="welcome-title" data-i18n="welcomeTitle">Find your next favorite game.</h1>
-          <p class="welcome-description" data-i18n="welcomeDescription">Pick a cover, press play, and come right back whenever you want. All your games are together here.</p>
-          <div class="welcome-actions"><a class="primary-link" href="#all-games" data-i18n="exploreGames">Explore games</a><a class="secondary-link" href="./player.html?game=level-devil" data-i18n="playFeatured">Play Level Devil</a></div>
-          <p class="controller-help" data-i18n="controllerBrowse">Using a controller? Move with the D-pad or stick and press ✕ to play.</p>
+          <p class="welcome-description" data-i18n="welcomeDescription">Tap a game to start playing. Come back anytime to choose another.</p>
         </div>
-        <a class="featured-game" href="./player.html?game=level-devil" aria-label="Play Level Devil"><img src="./art/level-devil-front.webp" alt="Level Devil opening room"><span class="featured-caption"><small data-i18n="featuredGame">FEATURED GAME</small><strong>Level Devil</strong><b aria-hidden="true">↗</b></span></a>
+        <img class="welcome-mascot" src="./art/shitaky/icon.png?v=4" alt="" aria-hidden="true">
       </section>
 
       <section class="browse-section" id="all-games" aria-labelledby="games-title">
         <div class="section-heading"><div><p class="section-kicker" data-i18n="explore">Explore</p><h2 id="games-title" data-i18n="allGames">All games</h2><p data-i18n="browseDescription">Open any game with one click or tap.</p></div><span class="game-count" data-i18n="gameCount">11 games to play</span></div>
-        <div class="filter-row" role="group" aria-label="Filter games" data-i18n-aria="filterGames"><button class="filter-button active" type="button" data-filter="all" aria-pressed="true" data-i18n="filterAll">All</button><button class="filter-button" type="button" data-filter="action" aria-pressed="false" data-i18n="filterAction">Action</button><button class="filter-button" type="button" data-filter="adventure" aria-pressed="false" data-i18n="filterAdventure">Adventure</button><button class="filter-button" type="button" data-filter="learning" aria-pressed="false" data-i18n="filterLearning">Learning</button></div>
         <div class="cover-layer" id="cover-layer" aria-label="Games">
       <a class="game-cover ink" data-portal="ink-fight" data-category="action" data-game-src="https://ink-fight.onrender.com" href="./player.html?game=ink-fight" aria-label="Play Ink Fight">
         <div class="cover-art"><img src="./art/ink-fight-front.webp" alt="Ink Fight opening screen"></div>
-        <div class="cover-footer"><div><small>01 / 11</small><strong>Ink Fight</strong><span data-i18n="inkSubtitle">Paper arena brawler</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>01 / 11</small><strong>Ink Fight</strong><span data-i18n="inkSubtitle">Paper arena brawler</span></div></div>
       </a>
       <a class="game-cover sketch" data-portal="sketchbound" data-category="adventure" data-game-src="./play/sketchbound/" href="./player.html?game=sketchbound" aria-label="Play Sketchbound">
         <div class="cover-art"><img src="./art/sketchbound-front.webp" alt="Sketchbound opening screen"></div>
-        <div class="cover-footer"><div><small>02 / 11</small><strong>Sketchbound</strong><span data-i18n="sketchSubtitle">Hand-drawn platformer</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>02 / 11</small><strong>Sketchbound</strong><span data-i18n="sketchSubtitle">Hand-drawn platformer</span></div></div>
       </a>
       <a class="game-cover exfil" data-portal="dmz-3d" data-category="action" data-game-src="./play/dmz-3d/" href="./player.html?game=dmz-3d" aria-label="Play EXFIL ZERO">
         <div class="cover-art"><img src="./art/dmz-3d-front.webp" alt="EXFIL ZERO opening screen"></div>
-        <div class="cover-footer"><div><small>03 / 11</small><strong>EXFIL ZERO</strong><span data-i18n="exfilSubtitle">3D DMZ survival</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>03 / 11</small><strong>EXFIL ZERO</strong><span data-i18n="exfilSubtitle">3D DMZ survival</span></div></div>
       </a>
       <a class="game-cover dmz" data-portal="dmz-2b" data-category="action" data-game-src="./play/dmz-2b/" href="./player.html?game=dmz-2b" aria-label="Play DMZ 2D">
         <div class="cover-art"><img src="./art/dmz-2b-front.webp" alt="DMZ 2D opening screen"></div>
-        <div class="cover-footer"><div><small>04 / 11</small><strong>DMZ 2D</strong><span data-i18n="dmz2Subtitle">Pixel extraction</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>04 / 11</small><strong>DMZ 2D</strong><span data-i18n="dmz2Subtitle">Pixel extraction</span></div></div>
       </a>
       <a class="game-cover dmz" data-portal="dmz-pixel" data-category="action" data-game-src="./play/dmz-pixel/" href="./player.html?game=dmz-pixel" aria-label="Play DMZ Pixel">
         <div class="cover-art"><img src="./art/dmz-pixel-front.webp" alt="DMZ Pixel opening screen"></div>
-        <div class="cover-footer"><div><small>05 / 11</small><strong>DMZ Pixel</strong><span data-i18n="dmzPixelSubtitle">Original extraction game</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>05 / 11</small><strong>DMZ Pixel</strong><span data-i18n="dmzPixelSubtitle">Original extraction game</span></div></div>
       </a>
       <a class="game-cover dead" data-portal="dead-center" data-category="action" data-game-src="./play/dead-center/" href="./player.html?game=dead-center" aria-label="Play Dead Center">
         <div class="cover-art"><img src="./art/dead-center-front.webp" alt="Dead Center opening screen"></div>
-        <div class="cover-footer"><div><small>06 / 11</small><strong>Dead Center</strong><span data-i18n="deadSubtitle">Survive the night</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>06 / 11</small><strong>Dead Center</strong><span data-i18n="deadSubtitle">Survive the night</span></div></div>
       </a>
       <a class="game-cover bravo" data-portal="bravocado" data-category="adventure" data-game-src="./play/bravocado/" href="./player.html?game=bravocado" aria-label="Play Bravocado">
         <div class="cover-art"><img src="./art/bravocado-front.webp" alt="Bravocado opening screen"></div>
-        <div class="cover-footer"><div><small>07 / 11</small><strong>Bravocado</strong><span data-i18n="bravoSubtitle">Grove survivor</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>07 / 11</small><strong>Bravocado</strong><span data-i18n="bravoSubtitle">Grove survivor</span></div></div>
       </a>
       <a class="game-cover cup" data-portal="manabi-cup" data-category="learning" data-game-src="./play/manabi-cup/" href="./player.html?game=manabi-cup" aria-label="Play Manabi Cup">
         <div class="cover-art"><img src="./art/manabi-cup-front.webp" alt="Manabi Cup opening screen"></div>
-        <div class="cover-footer"><div><small>08 / 11</small><strong>Manabi Cup</strong><span data-i18n="cupSubtitle">Grade 1–6 math game</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>08 / 11</small><strong>Manabi Cup</strong><span data-i18n="cupSubtitle">Grade 1–6 math game</span></div></div>
       </a>
       <a class="game-cover royale" data-portal="battle-royale" data-category="action" data-game-src="https://battleroyalefile.onrender.com" href="./player.html?game=battle-royale" aria-label="Play Battle Royale">
         <div class="cover-art"><img src="./art/battle-royale-front.webp" alt="Battle Royale opening screen"></div>
-        <div class="cover-footer"><div><small>09 / 11</small><strong>Battle Royale</strong><span data-i18n="royaleSubtitle">Multiplayer arena</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>09 / 11</small><strong>Battle Royale</strong><span data-i18n="royaleSubtitle">Multiplayer arena</span></div></div>
       </a>
       <a class="game-cover devil" data-portal="level-devil" data-category="adventure" data-game-src="./play/level-devil/" href="./player.html?game=level-devil" aria-label="Play Level Devil">
         <div class="cover-art"><img src="./art/level-devil-front.webp" alt="Level Devil opening room"></div>
-        <div class="cover-footer"><div><small>10 / 11</small><strong>Level Devil</strong><span data-i18n="devilSubtitle">Trick platformer</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>10 / 11</small><strong>Level Devil</strong><span data-i18n="devilSubtitle">Trick platformer</span></div></div>
       </a>
       <a class="game-cover flight" data-portal="type-flight" data-category="learning" data-game-src="./play/type-flight/" href="./player.html?game=type-flight" aria-label="Play Type Flight">
         <div class="cover-art"><img src="./art/type-flight-front.webp?v=1f15eaf1203a" alt="Type Flight pixel typing game opening screen"></div>
-        <div class="cover-footer"><div><small>11 / 11</small><strong>Type Flight</strong><span data-i18n="flightSubtitle">Pixel typing game</span></div><b class="play-chip" data-i18n="playChip">PLAY →</b></div>
+        <div class="cover-footer"><div><small>11 / 11</small><strong>Type Flight</strong><span data-i18n="flightSubtitle">Pixel typing game</span></div></div>
       </a>
         </div>
-        <div class="no-results" id="no-results" hidden><strong data-i18n="noResultsTitle">No games found</strong><p data-i18n="noResultsDescription">Try a different search or category.</p></div>
+        <div class="no-results" id="no-results" hidden><strong data-i18n="noResultsTitle">No games found</strong><p data-i18n="noResultsDescription">Try a different search.</p></div>
       </section>
-      <footer class="site-footer"><a class="footer-brand" href="#discover"><img src="./art/shitaky/icon.png?v=4" alt="">Shitaky Games</a><span data-i18n="footerLine">Find a game. Have fun. Come back for more.</span></footer>
+      <footer class="site-footer"><a class="footer-brand" href="./"><img src="./art/shitaky/icon.png?v=4" alt="">Shitaky Games</a><span data-i18n="footerLine">Find a game. Have fun. Come back for more.</span></footer>
     </div>
     <dialog class="settings-dialog" id="settings-dialog" aria-labelledby="settings-title">
       <div class="settings-content">

@@ -3,30 +3,18 @@
 
   const search = document.querySelector("#game-search");
   const cards = [...document.querySelectorAll(".game-cover")];
-  const filters = [...document.querySelectorAll(".filter-button")];
   const noResults = document.querySelector("#no-results");
-  let category = "all";
 
   function visibleCards() { return cards.filter((card) => !card.hidden); }
   function update() {
     const query = search.value.trim().toLocaleLowerCase();
     for (const card of cards) {
-      const matchesCategory = category === "all" || card.dataset.category === category;
       const terms = `${card.querySelector("strong")?.textContent || ""} ${card.querySelector(".cover-footer span")?.textContent || ""}`.toLocaleLowerCase();
-      card.hidden = !matchesCategory || !terms.includes(query);
+      card.hidden = !terms.includes(query);
     }
     noResults.hidden = visibleCards().length > 0;
   }
 
-  for (const filter of filters) filter.addEventListener("click", () => {
-    category = filter.dataset.filter;
-    for (const button of filters) {
-      const active = button === filter;
-      button.classList.toggle("active", active);
-      button.setAttribute("aria-pressed", String(active));
-    }
-    update();
-  });
   search.addEventListener("input", () => {
     document.querySelector("#all-games").scrollIntoView({ block: "start" });
     update();
