@@ -39,6 +39,8 @@
   direct.setAttribute("aria-label", copy.open);
   back.title = copy.hold;
   loading.textContent = copy.loading;
+  const requestedGame = new URLSearchParams(location.search).get("game");
+  if (requestedGame) back.href = `./?from=${encodeURIComponent(requestedGame)}`;
 
   let games = [];
   let current = null;
@@ -122,7 +124,7 @@
       link.textContent = game.name;
       return link;
     }));
-    show(new URLSearchParams(location.search).get("game"));
+    show(requestedGame);
   }).catch((error) => {
     title.textContent = copy.unavailable;
     loading.textContent = copy.unavailable;
