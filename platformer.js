@@ -257,6 +257,15 @@
   }
 
   resize();
+  const returnedFrom = new URLSearchParams(location.search).get("from");
+  const returnedPortal = portals.find(({ anchor }) => anchor.dataset.portal === returnedFrom);
+  if (returnedPortal) {
+    const scale = canvas.clientWidth / viewWidth;
+    player.x = Math.max(32, returnedPortal.x - returnedPortal.anchor.offsetWidth / (2 * scale) - 8);
+    cameraX = Math.max(0, Math.min(worldWidth - viewWidth, returnedPortal.x - viewWidth * 0.65));
+    placeCovers();
+    history.replaceState(history.state, "", location.pathname + location.hash);
+  }
   window.addEventListener("resize", resize);
   requestAnimationFrame(loop);
   loadAnimations().then((sheets) => {
