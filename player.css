@@ -1,12 +1,12 @@
-:root{font-family:ui-rounded,'Trebuchet MS',Arial,sans-serif;color:#4a302a;background:#241d1b}
+:root{font-family:ui-rounded,'Trebuchet MS',Arial,sans-serif;color:#2c3e50;background:#202734}
 *{box-sizing:border-box}
 html,body{width:100%;height:100%;margin:0;overflow:hidden}
 button,a,summary{font:inherit}
 button{cursor:pointer}
 .player-shell{display:flex;flex-direction:column;width:100vw;height:100vh;height:100dvh;overflow:hidden}
-.player-bar{position:relative;z-index:5;display:flex;align-items:center;gap:12px;min-height:60px;padding:max(7px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 7px max(12px,env(safe-area-inset-left));background:#e83f39;border-bottom:4px solid #a92f2c;color:#fff7e7}
-.return-link,.step-button,.game-menu summary,.open-direct{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:7px 11px;border:2px solid #fff2d7;border-bottom-width:4px;border-radius:10px;background:#fff8ec;color:#6b352d;text-decoration:none;font-size:.88rem;font-weight:900;white-space:nowrap;touch-action:manipulation}
-.return-link:hover,.step-button:hover,.game-menu summary:hover,.open-direct:hover{background:#ffe6bd}
+.player-bar{position:relative;z-index:5;display:flex;align-items:center;gap:12px;min-height:60px;padding:max(7px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 7px max(12px,env(safe-area-inset-left));background:#4d97ff;border-bottom:4px solid #3279d6;color:#fff}
+.return-link,.step-button,.game-menu summary,.open-direct{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:7px 11px;border:2px solid #dcecff;border-bottom-width:4px;border-radius:9px;background:#fff;color:#2c6db7;text-decoration:none;font-size:.88rem;font-weight:900;white-space:nowrap;touch-action:manipulation}
+.return-link:hover,.step-button:hover,.game-menu summary:hover,.open-direct:hover{background:#e8f2ff}
 .return-link span:first-child{font-size:1.25rem;line-height:1}
 .game-heading{display:flex;align-items:center;gap:8px;min-width:0;margin-right:auto}
 .game-heading img{width:38px;height:38px;object-fit:contain;image-rendering:pixelated}
@@ -19,14 +19,14 @@ button{cursor:pointer}
 .game-menu summary{list-style:none;cursor:pointer}
 .game-menu summary::-webkit-details-marker{display:none}
 .game-menu summary::after{content:'▾';font-size:.75rem}
-.game-list{position:absolute;top:calc(100% + 7px);right:0;z-index:10;display:grid;gap:2px;width:min(280px,calc(100vw - 24px));max-height:min(70dvh,550px);padding:8px;overflow:auto;border:3px solid #774637;border-radius:12px;background:#fff9ef;box-shadow:0 12px 28px #32180c55}
-.game-list a{display:block;padding:10px 12px;border-radius:7px;color:#4a302a;text-decoration:none;font-size:.88rem;font-weight:800}
-.game-list a:hover,.game-list a[aria-current=page]{background:#ffe2b4;color:#8b3028}
+.game-list{position:absolute;top:calc(100% + 7px);right:0;z-index:10;display:grid;gap:2px;width:min(280px,calc(100vw - 24px));max-height:min(70dvh,550px);padding:8px;overflow:auto;border:2px solid #8cb8ec;border-radius:10px;background:#fff;box-shadow:0 12px 28px #173c6b55}
+.game-list a{display:block;padding:10px 12px;border-radius:7px;color:#2c3e50;text-decoration:none;font-size:.88rem;font-weight:800}
+.game-list a:hover,.game-list a[aria-current=page]{background:#e4f0ff;color:#2f76c6}
 .open-direct span:first-child{font-size:1.15rem;line-height:1}
 .player-stage{position:relative;flex:1;min-height:0;background:#1b1818}
 .player-stage iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:0;background:#1b1818}
-.loading-message{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);margin:0;padding:12px 17px;border-radius:10px;background:#fff8ec;color:#563a2d;font-weight:900;white-space:nowrap;pointer-events:none}
+.loading-message{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);margin:0;padding:12px 17px;border-radius:10px;background:#fff;color:#2c5d95;font-weight:900;white-space:nowrap;pointer-events:none}
 .loading-message[hidden]{display:none}
-:focus-visible{outline:3px solid #ffe483;outline-offset:3px}
+:focus-visible{outline:3px solid #ffae2b;outline-offset:3px}
 @media(max-width:760px){.player-bar{gap:7px}.game-heading img,.game-heading small{display:none}.game-heading strong{font-size:.87rem}.open-direct span:last-child{display:none}.open-direct{width:40px;padding:0}.step-button{width:36px}.return-link{padding-inline:9px}.game-menu summary{padding-inline:8px}}
 @media(max-width:430px){.player-bar{gap:5px;padding-left:max(7px,env(safe-area-inset-left));padding-right:max(7px,env(safe-area-inset-right))}.return-link span:last-child{display:none}.return-link{width:40px;padding:0}.player-actions{gap:4px}.game-menu summary{min-width:55px;font-size:.78rem}}
