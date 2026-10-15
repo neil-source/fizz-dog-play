@@ -2,10 +2,14 @@
   "use strict";
 
   const games = {
-    "cloud-post": { name: "Cloud Post", image: "./art/concepts/cloud-post.jpg" },
-    buttonwood: { name: "Buttonwood", image: "./art/concepts/buttonwood.jpg" },
-    "neon-noodles": { name: "Neon Noodles", image: "./art/concepts/neon-noodles.jpg" },
-    tideglass: { name: "Tideglass", image: "./art/concepts/tideglass.jpg" }
+    "cloud-post": { name: "Cloud Post", image: "./art/concepts/cloud-post-cover.jpg" },
+    buttonwood: { name: "Buttonwood", image: "./art/concepts/buttonwood-cover.jpg" },
+    "neon-noodles": { name: "Neon Noodles", image: "./art/concepts/neon-noodles-cover.jpg" },
+    tideglass: { name: "Tideglass", image: "./art/concepts/tideglass-cover.jpg" },
+    "comet-cart": { name: "Comet Cart", image: "./art/concepts/comet-cart-cover.jpg" },
+    "moonberry-market": { name: "Moonberry Market", image: "./art/concepts/moonberry-market-cover.jpg" },
+    "clockwork-cove": { name: "Clockwork Cove", image: "./art/concepts/clockwork-cove-cover.jpg" },
+    "beat-bloom": { name: "Beat Bloom", image: "./art/concepts/beat-bloom-cover.jpg" }
   };
   const copy = {
     en: {
@@ -40,6 +44,20 @@
     }
   };
 
+  const storeCopy = {
+    en: { navDiscover: "Discover", navTop: "Top concepts", search: "Search game concepts", introEyebrow: "SHITAKY GAMES", introTitle: "Find your next little world", introBody: "Browse original game ideas, each with its own cover and story.", featuredTitle: "Featured concept", featuredSubtitle: "A new idea to explore", featuredTag: "FEATURED GAME IDEA", featuredBody: "Race a little kart across looping tracks on pocket-sized planets.", browseTitle: "Explore games", browseSubtitle: "Pick a world and see the game idea behind its cover.", conceptCount: "8 concepts", filterAll: "All", filterAdventure: "Adventure", filterPuzzle: "Puzzle", filterArcade: "Arcade", filterCozy: "Cozy", noResults: "No concepts match that search.", topTitle: "Top concepts", topSubtitle: "A few favorites from the idea shelf", aboutTitle: "About this game idea", detailNote: "This is an idea and original cover art. There is no playable build yet.", genres: { "comet-cart": "Space racing", "moonberry-market": "Market builder", "clockwork-cove": "Puzzle adventure", "beat-bloom": "Rhythm garden" }, descriptions: { "comet-cart": "Race a tiny kart across looping tracks on pocket-sized planets, catching comets for speed boosts.", "moonberry-market": "Build a moonlit market, trade glowing berries, and make a little place for every visitor.", "clockwork-cove": "Turn giant gears to move bridges, open tidal gates, and reach the lighthouse across the cove.", "beat-bloom": "Step to the rhythm, grow bright flowers, and bring music back to a quiet garden." } },
+    ja: { navDiscover: "見つける", navTop: "人気の案", search: "ゲーム案を検索", introEyebrow: "SHITAKY GAMES", introTitle: "次の小さな世界を見つけよう", introBody: "それぞれの表紙と物語を持つオリジナルのゲーム案を見てみよう。", featuredTitle: "注目のゲーム案", featuredSubtitle: "新しいアイデアをチェック", featuredTag: "注目のゲーム案", featuredBody: "小さな惑星を結ぶコースをカートで駆け抜けよう。", browseTitle: "ゲーム案を探す", browseSubtitle: "表紙を選んで、どんなゲームになるか見てみよう。", conceptCount: "8つのコンセプト", filterAll: "すべて", filterAdventure: "冒険", filterPuzzle: "パズル", filterArcade: "アーケード", filterCozy: "のんびり", noResults: "一致するゲーム案がありません。", topTitle: "人気のゲーム案", topSubtitle: "アイデア棚からのおすすめ", aboutTitle: "このゲーム案について", detailNote: "これはオリジナルのゲーム案と表紙アートです。まだプレイできません。", genres: { "comet-cart": "宇宙レース", "moonberry-market": "マーケット作り", "clockwork-cove": "パズル冒険", "beat-bloom": "リズムガーデン" }, descriptions: { "comet-cart": "小さな惑星のループコースを走り、彗星を集めてスピードアップ。", "moonberry-market": "月明かりの市場を作り、光るベリーを交換して、お客さんを迎えよう。", "clockwork-cove": "大きな歯車を回して橋や水門を動かし、入り江の灯台を目指そう。", "beat-bloom": "リズムに合わせて歩き、花を咲かせて、静かな庭に音楽を取り戻そう。" } },
+    es: { navDiscover: "Descubrir", navTop: "Más destacados", search: "Buscar ideas de juegos", introEyebrow: "SHITAKY GAMES", introTitle: "Encuentra tu próximo pequeño mundo", introBody: "Explora ideas de juegos originales, cada una con su portada e historia.", featuredTitle: "Concepto destacado", featuredSubtitle: "Una nueva idea para explorar", featuredTag: "IDEA DESTACADA", featuredBody: "Corre en un pequeño kart por pistas que rodean planetas diminutos.", browseTitle: "Explorar juegos", browseSubtitle: "Elige un mundo y descubre la idea detrás de su portada.", conceptCount: "8 conceptos", filterAll: "Todos", filterAdventure: "Aventura", filterPuzzle: "Puzles", filterArcade: "Arcade", filterCozy: "Tranquilos", noResults: "No hay conceptos que coincidan.", topTitle: "Conceptos destacados", topSubtitle: "Favoritos de nuestra colección de ideas", aboutTitle: "Acerca de esta idea", detailNote: "Esta es una idea con portada original. Todavía no hay un juego disponible.", genres: { "comet-cart": "Carreras espaciales", "moonberry-market": "Crear un mercado", "clockwork-cove": "Aventura de puzles", "beat-bloom": "Jardín rítmico" }, descriptions: { "comet-cart": "Compite por pistas alrededor de planetas pequeños y recoge cometas para acelerar.", "moonberry-market": "Construye un mercado nocturno, intercambia bayas luminosas y recibe a todos.", "clockwork-cove": "Gira engranajes gigantes para mover puentes, abrir compuertas y llegar al faro.", "beat-bloom": "Sigue el ritmo, cultiva flores brillantes y devuelve la música a un jardín tranquilo." } },
+    fr: { navDiscover: "Découvrir", navTop: "Les favoris", search: "Chercher des idées de jeux", introEyebrow: "SHITAKY GAMES", introTitle: "Trouvez votre prochain petit monde", introBody: "Explorez des idées de jeux originales, chacune avec sa couverture et son histoire.", featuredTitle: "Concept à la une", featuredSubtitle: "Une nouvelle idée à explorer", featuredTag: "IDÉE À LA UNE", featuredBody: "Foncez en petit kart sur des pistes autour de planètes miniatures.", browseTitle: "Explorer les jeux", browseSubtitle: "Choisissez un monde et découvrez l'idée derrière sa couverture.", conceptCount: "8 concepts", filterAll: "Tout", filterAdventure: "Aventure", filterPuzzle: "Puzzle", filterArcade: "Arcade", filterCozy: "Détente", noResults: "Aucun concept ne correspond à la recherche.", topTitle: "Concepts favoris", topSubtitle: "Quelques idées que nous aimons", aboutTitle: "À propos de cette idée", detailNote: "Voici une idée et une couverture originale. Aucun jeu jouable n'est encore disponible.", genres: { "comet-cart": "Course spatiale", "moonberry-market": "Marché à construire", "clockwork-cove": "Aventure puzzle", "beat-bloom": "Jardin rythmique" }, descriptions: { "comet-cart": "Foncez sur des pistes autour de petites planètes et attrapez des comètes pour accélérer.", "moonberry-market": "Créez un marché au clair de lune, échangez des baies lumineuses et accueillez chacun.", "clockwork-cove": "Tournez d'énormes engrenages pour déplacer les ponts et atteindre le phare.", "beat-bloom": "Avancez en rythme, faites pousser des fleurs et rendez sa musique au jardin." } },
+    de: { navDiscover: "Entdecken", navTop: "Top-Konzepte", search: "Spielideen suchen", introEyebrow: "SHITAKY GAMES", introTitle: "Finde deine nächste kleine Welt", introBody: "Entdecke eigene Spielideen, jede mit Cover und Geschichte.", featuredTitle: "Vorgestelltes Konzept", featuredSubtitle: "Eine neue Idee zum Entdecken", featuredTag: "SPIELIDEE IM FOKUS", featuredBody: "Rase im kleinen Kart über Strecken auf winzigen Planeten.", browseTitle: "Spiele entdecken", browseSubtitle: "Wähle eine Welt und sieh die Idee hinter ihrem Cover.", conceptCount: "8 Konzepte", filterAll: "Alle", filterAdventure: "Abenteuer", filterPuzzle: "Rätsel", filterArcade: "Arcade", filterCozy: "Gemütlich", noResults: "Keine passenden Konzepte gefunden.", topTitle: "Top-Konzepte", topSubtitle: "Ein paar Favoriten aus dem Ideenregal", aboutTitle: "Über diese Spielidee", detailNote: "Dies ist eine Idee mit eigenem Cover. Eine spielbare Version gibt es noch nicht.", genres: { "comet-cart": "Weltraumrennen", "moonberry-market": "Markt aufbauen", "clockwork-cove": "Rätselabenteuer", "beat-bloom": "Rhythmusgarten" }, descriptions: { "comet-cart": "Rase über Schleifen um winzige Planeten und sammle Kometen als Geschwindigkeitsschub.", "moonberry-market": "Baue einen Markt im Mondlicht, tausche leuchtende Beeren und begrüße alle Gäste.", "clockwork-cove": "Drehe riesige Zahnräder, bewege Brücken und erreiche den Leuchtturm.", "beat-bloom": "Geh im Takt, lass bunte Blumen wachsen und bring Musik in einen stillen Garten." } },
+    pt: { navDiscover: "Descobrir", navTop: "Destaques", search: "Buscar ideias de jogos", introEyebrow: "SHITAKY GAMES", introTitle: "Encontre seu próximo pequeno mundo", introBody: "Explore ideias originais de jogos, cada uma com sua capa e história.", featuredTitle: "Conceito em destaque", featuredSubtitle: "Uma nova ideia para explorar", featuredTag: "IDEIA EM DESTAQUE", featuredBody: "Corra com um pequeno kart por pistas em planetas minúsculos.", browseTitle: "Explore jogos", browseSubtitle: "Escolha um mundo e descubra a ideia por trás da capa.", conceptCount: "8 conceitos", filterAll: "Todos", filterAdventure: "Aventura", filterPuzzle: "Quebra-cabeça", filterArcade: "Arcade", filterCozy: "Tranquilo", noResults: "Nenhum conceito corresponde à busca.", topTitle: "Conceitos em destaque", topSubtitle: "Alguns favoritos da nossa coleção de ideias", aboutTitle: "Sobre esta ideia", detailNote: "Esta é uma ideia com capa original. Ainda não existe uma versão jogável.", genres: { "comet-cart": "Corrida espacial", "moonberry-market": "Criar um mercado", "clockwork-cove": "Aventura de enigmas", "beat-bloom": "Jardim rítmico" }, descriptions: { "comet-cart": "Corra em pistas que contornam planetas pequenos e pegue cometas para acelerar.", "moonberry-market": "Monte um mercado ao luar, troque frutas brilhantes e receba cada visitante.", "clockwork-cove": "Gire engrenagens gigantes para mover pontes e chegar ao farol da enseada.", "beat-bloom": "Pise no ritmo, faça flores crescerem e devolva a música a um jardim quieto." } }
+  };
+  for (const [language, addition] of Object.entries(storeCopy)) {
+    copy[language] = { ...copy[language], ...addition,
+      genres: { ...copy[language].genres, ...addition.genres },
+      descriptions: { ...copy[language].descriptions, ...addition.descriptions } };
+  }
+
   const dialog = document.querySelector("#concept-dialog");
   const art = document.querySelector("#concept-dialog-art");
   const title = document.querySelector("#concept-dialog-title");
@@ -47,20 +65,44 @@
   const description = document.querySelector("#concept-dialog-description");
   const closeButton = document.querySelector("#concept-dialog-close");
   const cards = Array.from(document.querySelectorAll(".concept-card"));
+  const openers = Array.from(document.querySelectorAll("button[data-concept]"));
+  const search = document.querySelector("#concept-search");
+  const filters = Array.from(document.querySelectorAll(".genre-filter"));
+  const noResults = document.querySelector("#no-concepts");
+  const total = document.querySelector(".concept-total");
   let selected = null;
   let lastTrigger = null;
+  let activeFilter = "all";
   const currentCopy = () => copy[document.documentElement.lang] || copy.en;
 
   function updateLanguage() {
     const language = currentCopy();
     for (const node of document.querySelectorAll("[data-concept-i18n]")) node.textContent = language[node.dataset.conceptI18n];
-    for (const card of cards) {
-      const id = card.dataset.concept;
-      card.querySelector("[data-concept-genre]").textContent = language.genres[id];
-      card.setAttribute("aria-label", language.view.replace("{name}", games[id].name));
+    for (const opener of openers) {
+      const id = opener.dataset.concept;
+      for (const label of opener.querySelectorAll("[data-concept-genre]")) label.textContent = language.genres[id];
+      opener.setAttribute("aria-label", language.view.replace("{name}", games[id].name));
     }
+    search.placeholder = language.search;
+    search.setAttribute("aria-label", language.search);
     closeButton.setAttribute("aria-label", language.close);
     if (selected) showDetails(selected);
+    filterCards();
+  }
+  function filterCards() {
+    const query = search.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    for (const card of cards) {
+      const id = card.dataset.concept;
+      const genreMatch = activeFilter === "all" || card.dataset.genre.split(" ").includes(activeFilter);
+      const searchText = [games[id].name, currentCopy().genres[id], currentCopy().descriptions[id], card.dataset.genre].join(" ").toLocaleLowerCase();
+      card.hidden = !genreMatch || !searchText.includes(query);
+      if (!card.hidden) visible++;
+    }
+    noResults.hidden = visible !== 0;
+    total.textContent = activeFilter === "all" && !query ? currentCopy().conceptCount : `${visible} / ${cards.length}`;
+    document.querySelector(".feature-section").hidden = Boolean(query) || activeFilter !== "all";
+    document.querySelector(".top-section").hidden = Boolean(query) || activeFilter !== "all";
   }
   function showDetails(id) {
     const game = games[id];
@@ -78,7 +120,17 @@
     dialog.showModal();
     closeButton.focus();
   }
-  cards.forEach(card => card.addEventListener("click", () => openCard(card)));
+  openers.forEach(opener => opener.addEventListener("click", () => openCard(opener)));
+  search.addEventListener("input", filterCards);
+  filters.forEach(button => button.addEventListener("click", () => {
+    activeFilter = button.dataset.filter;
+    for (const filter of filters) {
+      const active = filter === button;
+      filter.classList.toggle("active", active);
+      filter.setAttribute("aria-pressed", String(active));
+    }
+    filterCards();
+  }));
   closeButton.addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", event => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener("close", () => { selected = null; lastTrigger?.focus(); });
@@ -98,12 +150,13 @@
       const vertical = (pressed(13) || (gamepad.axes?.[1] || 0) > .55 ? 1 : 0) - (pressed(12) || (gamepad.axes?.[1] || 0) < -.55 ? 1 : 0);
       const direction = horizontal || vertical;
       if (direction && (direction !== pad.direction || performance.now() - pad.lastMove > 270)) {
-        const at = cards.indexOf(document.activeElement);
-        cards[(at < 0 ? 0 : (at + direction + cards.length) % cards.length)].focus();
+        const visibleCards = cards.filter(card => !card.hidden);
+        const at = visibleCards.indexOf(document.activeElement);
+        if (visibleCards.length) visibleCards[(at < 0 ? 0 : (at + direction + visibleCards.length) % visibleCards.length)].focus();
         pad.lastMove = performance.now();
       }
       pad.direction = direction;
-      if (confirm && !pad.confirm && cards.includes(document.activeElement)) document.activeElement.click();
+      if (confirm && !pad.confirm && openers.includes(document.activeElement)) document.activeElement.click();
     }
     pad.cancel = cancel;
     pad.confirm = confirm;
