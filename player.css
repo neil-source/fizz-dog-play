@@ -9,7 +9,7 @@ button{cursor:pointer}
 .return-link:hover,.game-menu summary:hover,.open-direct:hover{background:#fff0d9}
 .return-link span:first-child{font-size:1.25rem;line-height:1}
 .game-heading{display:flex;align-items:center;gap:8px;min-width:0;margin-right:auto}
-.game-heading img{width:38px;height:38px;object-fit:contain;image-rendering:pixelated}
+.game-heading img{width:38px;height:38px;object-fit:contain}
 .game-heading div{display:flex;flex-direction:column;min-width:0}
 .game-heading small{font-size:.62rem;font-weight:900;letter-spacing:.12em;opacity:.9}
 .game-heading strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:1.05rem;line-height:1.12}
