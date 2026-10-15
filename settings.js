@@ -43,7 +43,15 @@
     en: "Grades 1–6 kanji", ja: "小学1～6年の漢字", es: "Kanji de 1.º a 6.º",
     fr: "Kanjis du CP à la 6e", de: "Kanji der Klassen 1–6", pt: "Kanji do 1.º ao 6.º ano"
   };
-  for (const code of supported) Object.assign(words[code], siteWords[code], { kanjiSubtitle: kanjiSubtitles[code] });
+  const storeWords = {
+    en: { browseGames: "Browse Shitaky Games", topPicks: "Top picks", categories: "Categories", chartsDescription: "A good place to start.", freeToPlay: "Free · Play in browser" },
+    ja: { browseGames: "Shitaky Gamesを探す", topPicks: "おすすめ", categories: "カテゴリー", chartsDescription: "ここから始めよう。", freeToPlay: "無料 · ブラウザーで遊ぶ" },
+    es: { browseGames: "Explora Shitaky Games", topPicks: "Recomendados", categories: "Categorías", chartsDescription: "Un buen lugar para empezar.", freeToPlay: "Gratis · Juega en el navegador" },
+    fr: { browseGames: "Découvrez Shitaky Games", topPicks: "Nos sélections", categories: "Catégories", chartsDescription: "Un bon point de départ.", freeToPlay: "Gratuit · Jouer dans le navigateur" },
+    de: { browseGames: "Shitaky Games entdecken", topPicks: "Unsere Tipps", categories: "Kategorien", chartsDescription: "Ein guter Anfang.", freeToPlay: "Kostenlos · Im Browser spielen" },
+    pt: { browseGames: "Explore Shitaky Games", topPicks: "Destaques", categories: "Categorias", chartsDescription: "Um bom lugar para começar.", freeToPlay: "Grátis · Jogue no navegador" }
+  };
+  for (const code of supported) Object.assign(words[code], siteWords[code], storeWords[code], { kanjiSubtitle: kanjiSubtitles[code] });
 
   const defaults = { language: "auto", device: "auto", largeText: false, highContrast: false, reduceMotion: false };
   let settings = { ...defaults };

@@ -3,36 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#c83d39">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Explore and play games at Shitaky Games.">
   <title>Shitaky Games · Explore games</title>
   <link rel="icon" type="image/png" href="./art/shitaky/icon.png?v=5">
-  <link rel="stylesheet" href="./styles.css?v=4">
+  <link rel="stylesheet" href="./styles.css?v=5">
   <script src="./settings.js?v=3" defer></script>
-  <script src="./gallery.js?v=2" defer></script>
+  <script src="./gallery.js?v=3" defer></script>
   
 </head>
 <body>
   <main class="game-shell" aria-label="Shitaky Games gallery">
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="./" aria-label="Shitaky Games home"><img src="./art/shitaky/icon.png?v=5" alt="">shitaky<span>games</span></a>
+        <a class="brand" href="./" aria-label="Shitaky Games home"><img src="./art/shitaky/icon.png?v=5" alt=""><span>Shitaky Games</span></a>
+        <nav class="store-nav" aria-label="Store navigation">
+          <a class="active" href="#all-games" data-i18n="allGames">All games</a>
+          <a href="#top-charts" data-i18n="topPicks">Top picks</a>
+          <a href="#categories" data-i18n="categories">Categories</a>
+        </nav>
         <label class="header-search"><span aria-hidden="true">⌕</span><input id="game-search" type="search" autocomplete="off" placeholder="Search games" data-i18n-placeholder="searchGames" aria-label="Search games" data-i18n-aria="searchGames"></label>
-        <div class="header-actions"><button class="settings-trigger" id="settings-trigger" type="button" aria-label="Settings" data-i18n-aria="settings"><span aria-hidden="true">⚙</span><span class="settings-label" data-i18n="settings">Settings</span></button></div>
+        <div class="header-actions">
+          <button class="settings-trigger" id="settings-trigger" type="button" aria-label="Settings" data-i18n-aria="settings"><span aria-hidden="true">⚙</span><span class="settings-label" data-i18n="settings">Settings</span></button>
+        </div>
       </div>
     </header>
     <div class="site-content">
-      <section class="welcome-banner" aria-labelledby="welcome-title">
-        <div class="welcome-copy">
-          <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="welcomeEyebrow">A little place to play</span></p>
-          <h1 id="welcome-title" data-i18n="welcomeTitle">Find your next favorite game.</h1>
-          <p class="welcome-description" data-i18n="welcomeDescription">Tap a game to start playing. Come back anytime to choose another.</p>
-        </div>
-        <img class="welcome-mascot" src="./art/shitaky/hero.webp?v=1" alt="" aria-hidden="true">
-      </section>
+      <div class="category-toolbar" id="categories" role="group" aria-label="Game categories" data-i18n-aria="filterGames">
+        <button class="category-chip active" type="button" data-filter="all" aria-pressed="true" data-i18n="filterAll">All</button>
+        <button class="category-chip" type="button" data-filter="action" aria-pressed="false" data-i18n="filterAction">Action</button>
+        <button class="category-chip" type="button" data-filter="adventure" aria-pressed="false" data-i18n="filterAdventure">Adventure</button>
+        <button class="category-chip" type="button" data-filter="learning" aria-pressed="false" data-i18n="filterLearning">Learning</button>
+      </div>
 
       <section class="browse-section" id="all-games" aria-labelledby="games-title">
-        <div class="section-heading"><div><p class="section-kicker" data-i18n="explore">Explore</p><h2 id="games-title" data-i18n="allGames">All games</h2><p data-i18n="browseDescription">Open any game with one click or tap.</p></div><span class="game-count" data-i18n="gameCount">10 games to play</span></div>
+        <div class="section-heading"><div><h1 id="games-title" data-i18n="browseGames">Browse Shitaky Games</h1><p data-i18n="browseDescription">Open any game with one click or tap.</p></div><span class="game-count" data-i18n="gameCount">10 games to play</span></div>
         <div class="cover-layer" id="cover-layer" aria-label="Games">
       <a class="game-cover ink" data-portal="ink-fight" data-category="action" data-game-src="https://ink-fight.onrender.com" href="./player.html?game=ink-fight" aria-label="Play Ink Fight">
         <div class="cover-art"><img src="./art/ink-fight-front.webp" alt="Ink Fight opening screen"></div>
@@ -76,6 +81,19 @@
       </a>
         </div>
         <div class="no-results" id="no-results" hidden><img src="./art/shitaky/poses/curious.webp?v=1" alt="" aria-hidden="true"><strong data-i18n="noResultsTitle">No games found</strong><p data-i18n="noResultsDescription">Try a different search.</p></div>
+      </section>
+      <section class="charts-section" id="top-charts" aria-labelledby="charts-title">
+        <div class="section-heading"><div><h2 id="charts-title" data-i18n="topPicks">Top picks</h2><p data-i18n="chartsDescription">A good place to start.</p></div></div>
+        <div class="charts-grid">
+          <a class="chart-item" href="./player.html?game=level-devil"><b>1</b><img src="./art/level-devil-front.webp" alt=""><span><strong>Level Devil</strong><small data-i18n="devilSubtitle">Trick platformer</small><em data-i18n="freeToPlay">Free to play</em></span></a>
+          <a class="chart-item" href="./player.html?game=sketchbound"><b>2</b><img src="./art/sketchbound-front.webp" alt=""><span><strong>Sketchbound</strong><small data-i18n="sketchSubtitle">Hand-drawn platformer</small><em data-i18n="freeToPlay">Free to play</em></span></a>
+          <a class="chart-item" href="./player.html?game=dmz-3d"><b>3</b><img src="./art/dmz-3d-front.webp" alt=""><span><strong>EXFIL ZERO</strong><small data-i18n="exfilSubtitle">3D DMZ survival</small><em data-i18n="freeToPlay">Free to play</em></span></a>
+          <a class="chart-item" href="./player.html?game=dmz-2b"><b>4</b><img src="./art/dmz-2b-front.webp" alt=""><span><strong>DMZ 2D</strong><small data-i18n="dmz2Subtitle">Pixel extraction</small><em data-i18n="freeToPlay">Free to play</em></span></a>
+          <a class="chart-item" href="./player.html?game=kanji-quiz"><b>5</b><img src="./art/kanji-quiz-front.png" alt=""><span><strong>Kanji Quiz</strong><small data-i18n="kanjiSubtitle">Grades 1–6 kanji</small><em data-i18n="freeToPlay">Free to play</em></span></a>
+          <a class="chart-item" href="./player.html?game=bravocado"><b>6</b><img src="./art/bravocado-front.webp" alt=""><span><strong>Bravocado</strong><small data-i18n="bravoSubtitle">Grove survivor</small><em data-i18n="freeToPlay">Free to play</em></span></a>
+          <a class="chart-item" href="./player.html?game=manabi-cup"><b>7</b><img src="./art/manabi-cup-front.webp" alt=""><span><strong>Manabi Cup</strong><small data-i18n="cupSubtitle">Grade 1–6 math game</small><em data-i18n="freeToPlay">Free to play</em></span></a>
+          <a class="chart-item" href="./player.html?game=dead-center"><b>8</b><img src="./art/dead-center-front.webp" alt=""><span><strong>Dead Center</strong><small data-i18n="deadSubtitle">Survive the night</small><em data-i18n="freeToPlay">Free to play</em></span></a>
+        </div>
       </section>
       <footer class="site-footer"><a class="footer-brand" href="./"><img src="./art/shitaky/poses/thumbs-up.webp?v=1" alt="">Shitaky Games</a><span data-i18n="footerLine">Find a game. Have fun. Come back for more.</span></footer>
     </div>

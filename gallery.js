@@ -3,19 +3,36 @@
 
   const search = document.querySelector("#game-search");
   const cards = [...document.querySelectorAll(".game-cover")];
+  const chips = [...document.querySelectorAll(".category-chip")];
+  const navLinks = [...document.querySelectorAll(".store-nav a")];
+  const charts = document.querySelector("#top-charts");
   const noResults = document.querySelector("#no-results");
+  let activeFilter = "all";
 
   function visibleCards() { return cards.filter((card) => !card.hidden); }
+  function selectNav(hash) {
+    for (const link of navLinks) link.classList.toggle("active", link.getAttribute("href") === hash);
+  }
   function update() {
     const query = search.value.trim().toLocaleLowerCase();
+    const freeLabel = window.FizzSettings?.t("freeToPlay") || "Free · Play in browser";
     for (const card of cards) {
       const terms = `${card.querySelector("strong")?.textContent || ""} ${card.querySelector(".cover-footer span")?.textContent || ""}`.toLocaleLowerCase();
-      card.hidden = !terms.includes(query);
+      card.hidden = (activeFilter !== "all" && card.dataset.category !== activeFilter) || !terms.includes(query);
+      card.querySelector(".cover-footer").dataset.free = freeLabel;
+    }
+    charts.hidden = Boolean(query) || activeFilter !== "all";
+    for (const chip of chips) {
+      const selected = chip.dataset.filter === activeFilter;
+      chip.classList.toggle("active", selected);
+      chip.setAttribute("aria-pressed", String(selected));
     }
     noResults.hidden = visibleCards().length > 0;
   }
 
   search.addEventListener("input", () => {
+    activeFilter = "all";
+    selectNav("#all-games");
     document.querySelector("#all-games").scrollIntoView({ block: "start" });
     update();
   });
@@ -23,6 +40,22 @@
     if (event.key === "Escape") { search.value = ""; update(); search.blur(); }
   });
   window.addEventListener("fizz-settings-change", update);
+  for (const chip of chips) chip.addEventListener("click", () => {
+    activeFilter = chip.dataset.filter;
+    selectNav("#categories");
+    search.value = "";
+    update();
+    document.querySelector("#all-games").scrollIntoView({ block: "start" });
+  });
+  for (const anchor of document.querySelectorAll('.store-nav a[href="#all-games"],.store-nav a[href="#top-charts"]')) {
+    anchor.addEventListener("click", () => {
+      selectNav(anchor.getAttribute("href"));
+      activeFilter = "all";
+      search.value = "";
+      update();
+    });
+  }
+  document.querySelector('.store-nav a[href="#categories"]').addEventListener("click", () => selectNav("#categories"));
 
   const returnedSlug = new URLSearchParams(location.search).get("from");
   const returnedCard = cards.find((card) => card.dataset.portal === returnedSlug);
