@@ -1,9 +1,0 @@
-{
-  "name": "まなびカップ · Math",
-  "short_name": "まなびカップ",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#fff1cb",
-  "theme_color": "#ff7858",
-  "icons": []
-}

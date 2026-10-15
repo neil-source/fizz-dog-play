@@ -4,114 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Explore and play games at Shitaky Games.">
-  <title>Shitaky Games · Explore games</title>
+  <meta name="description" content="Shitaky Games">
+  <title>Shitaky Games</title>
   <link rel="icon" type="image/png" href="./art/shitaky/icon.png?v=5">
-  <link rel="stylesheet" href="./styles.css?v=5">
-  <script src="./settings.js?v=3" defer></script>
-  <script src="./gallery.js?v=3" defer></script>
-  
+  <link rel="stylesheet" href="./styles.css?v=6">
+  <script src="./settings.js?v=4" defer></script>
 </head>
 <body>
-  <main class="game-shell" aria-label="Shitaky Games gallery">
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="./" aria-label="Shitaky Games home"><img src="./art/shitaky/icon.png?v=5" alt=""><span>Shitaky Games</span></a>
-        <nav class="store-nav" aria-label="Store navigation">
-          <a class="active" href="#all-games" data-i18n="allGames">All games</a>
-          <a href="#top-charts" data-i18n="topPicks">Top picks</a>
-          <a href="#categories" data-i18n="categories">Categories</a>
-        </nav>
-        <label class="header-search"><span aria-hidden="true">⌕</span><input id="game-search" type="search" autocomplete="off" placeholder="Search games" data-i18n-placeholder="searchGames" aria-label="Search games" data-i18n-aria="searchGames"></label>
-        <div class="header-actions">
-          <button class="settings-trigger" id="settings-trigger" type="button" aria-label="Settings" data-i18n-aria="settings"><span aria-hidden="true">⚙</span><span class="settings-label" data-i18n="settings">Settings</span></button>
-        </div>
-      </div>
-    </header>
+  <main class="game-shell" aria-label="Shitaky Games">
+    <header class="site-header"><div class="header-inner">
+      <a class="brand" href="./" aria-label="Shitaky Games home"><img src="./art/shitaky/icon.png?v=5" alt=""><span>Shitaky Games</span></a>
+      <div class="header-actions"><button class="settings-trigger" id="settings-trigger" type="button" aria-label="Settings" data-i18n-aria="settings"><span aria-hidden="true">⚙</span><span class="settings-label" data-i18n="settings">Settings</span></button></div>
+    </div></header>
     <div class="site-content">
-      <div class="category-toolbar" id="categories" role="group" aria-label="Game categories" data-i18n-aria="filterGames">
-        <button class="category-chip active" type="button" data-filter="all" aria-pressed="true" data-i18n="filterAll">All</button>
-        <button class="category-chip" type="button" data-filter="action" aria-pressed="false" data-i18n="filterAction">Action</button>
-        <button class="category-chip" type="button" data-filter="adventure" aria-pressed="false" data-i18n="filterAdventure">Adventure</button>
-        <button class="category-chip" type="button" data-filter="learning" aria-pressed="false" data-i18n="filterLearning">Learning</button>
-      </div>
-
-      <section class="browse-section" id="all-games" aria-labelledby="games-title">
-        <div class="section-heading"><div><h1 id="games-title" data-i18n="browseGames">Browse Shitaky Games</h1><p data-i18n="browseDescription">Open any game with one click or tap.</p></div><span class="game-count" data-i18n="gameCount">10 games to play</span></div>
-        <div class="cover-layer" id="cover-layer" aria-label="Games">
-      <a class="game-cover ink" data-portal="ink-fight" data-category="action" data-game-src="https://ink-fight.onrender.com" href="./player.html?game=ink-fight" aria-label="Play Ink Fight">
-        <div class="cover-art"><img src="./art/ink-fight-front.webp" alt="Ink Fight opening screen"></div>
-        <div class="cover-footer"><div><small>01 / 10</small><strong>Ink Fight</strong><span data-i18n="inkSubtitle">Paper arena brawler</span></div></div>
-      </a>
-      <a class="game-cover sketch" data-portal="sketchbound" data-category="adventure" data-game-src="./play/sketchbound/" href="./player.html?game=sketchbound" aria-label="Play Sketchbound">
-        <div class="cover-art"><img src="./art/sketchbound-front.webp" alt="Sketchbound opening screen"></div>
-        <div class="cover-footer"><div><small>02 / 10</small><strong>Sketchbound</strong><span data-i18n="sketchSubtitle">Hand-drawn platformer</span></div></div>
-      </a>
-      <a class="game-cover exfil" data-portal="dmz-3d" data-category="action" data-game-src="./play/dmz-3d/" href="./player.html?game=dmz-3d" aria-label="Play EXFIL ZERO">
-        <div class="cover-art"><img src="./art/dmz-3d-front.webp" alt="EXFIL ZERO opening screen"></div>
-        <div class="cover-footer"><div><small>03 / 10</small><strong>EXFIL ZERO</strong><span data-i18n="exfilSubtitle">3D DMZ survival</span></div></div>
-      </a>
-      <a class="game-cover dmz" data-portal="dmz-2b" data-category="action" data-game-src="./play/dmz-2b/" href="./player.html?game=dmz-2b" aria-label="Play DMZ 2D">
-        <div class="cover-art"><img src="./art/dmz-2b-front.webp" alt="DMZ 2D opening screen"></div>
-        <div class="cover-footer"><div><small>04 / 10</small><strong>DMZ 2D</strong><span data-i18n="dmz2Subtitle">Pixel extraction</span></div></div>
-      </a>
-      <a class="game-cover dead" data-portal="dead-center" data-category="action" data-game-src="./play/dead-center/" href="./player.html?game=dead-center" aria-label="Play Dead Center">
-        <div class="cover-art"><img src="./art/dead-center-front.webp" alt="Dead Center opening screen"></div>
-        <div class="cover-footer"><div><small>05 / 10</small><strong>Dead Center</strong><span data-i18n="deadSubtitle">Survive the night</span></div></div>
-      </a>
-      <a class="game-cover bravo" data-portal="bravocado" data-category="adventure" data-game-src="./play/bravocado/" href="./player.html?game=bravocado" aria-label="Play Bravocado">
-        <div class="cover-art"><img src="./art/bravocado-front.webp" alt="Bravocado opening screen"></div>
-        <div class="cover-footer"><div><small>06 / 10</small><strong>Bravocado</strong><span data-i18n="bravoSubtitle">Grove survivor</span></div></div>
-      </a>
-      <a class="game-cover cup" data-portal="manabi-cup" data-category="learning" data-game-src="./play/manabi-cup/" href="./player.html?game=manabi-cup" aria-label="Play Manabi Cup">
-        <div class="cover-art"><img src="./art/manabi-cup-front.webp" alt="Manabi Cup opening screen"></div>
-        <div class="cover-footer"><div><small>07 / 10</small><strong>Manabi Cup</strong><span data-i18n="cupSubtitle">Grade 1–6 math game</span></div></div>
-      </a>
-      <a class="game-cover kanji" data-portal="kanji-quiz" data-category="learning" data-game-src="./play/kanji-quiz/" href="./player.html?game=kanji-quiz" aria-label="Play Kanji Quiz">
-        <div class="cover-art"><img src="./art/kanji-quiz-front.png" alt="Kanji Quiz opening screen"></div>
-        <div class="cover-footer"><div><small>08 / 10</small><strong>Kanji Quiz</strong><span data-i18n="kanjiSubtitle">Grades 1–6 kanji</span></div></div>
-      </a>
-      <a class="game-cover devil" data-portal="level-devil" data-category="adventure" data-game-src="./play/level-devil/" href="./player.html?game=level-devil" aria-label="Play Level Devil">
-        <div class="cover-art"><img src="./art/level-devil-front.webp" alt="Level Devil opening room"></div>
-        <div class="cover-footer"><div><small>09 / 10</small><strong>Level Devil</strong><span data-i18n="devilSubtitle">Trick platformer</span></div></div>
-      </a>
-      <a class="game-cover flight" data-portal="type-flight" data-category="learning" data-game-src="./play/type-flight/" href="./player.html?game=type-flight" aria-label="Play Type Flight">
-        <div class="cover-art"><img src="./art/type-flight-front.webp?v=1f15eaf1203a" alt="Type Flight pixel typing game opening screen"></div>
-        <div class="cover-footer"><div><small>10 / 10</small><strong>Type Flight</strong><span data-i18n="flightSubtitle">Pixel typing game</span></div></div>
-      </a>
-        </div>
-        <div class="no-results" id="no-results" hidden><img src="./art/shitaky/poses/curious.webp?v=1" alt="" aria-hidden="true"><strong data-i18n="noResultsTitle">No games found</strong><p data-i18n="noResultsDescription">Try a different search.</p></div>
+      <section class="empty-store" aria-labelledby="empty-title">
+        <img src="./art/shitaky/poses/curious.webp?v=1" alt="" aria-hidden="true">
+        <span class="empty-count" data-i18n="gameCount">0 games</span>
+        <h1 id="empty-title" data-i18n="emptyTitle">No games here right now</h1>
+        <p data-i18n="emptyDescription">Shitaky Games is empty for now.</p>
       </section>
-      <section class="charts-section" id="top-charts" aria-labelledby="charts-title">
-        <div class="section-heading"><div><h2 id="charts-title" data-i18n="topPicks">Top picks</h2><p data-i18n="chartsDescription">A good place to start.</p></div></div>
-        <div class="charts-grid">
-          <a class="chart-item" href="./player.html?game=level-devil"><b>1</b><img src="./art/level-devil-front.webp" alt=""><span><strong>Level Devil</strong><small data-i18n="devilSubtitle">Trick platformer</small><em data-i18n="freeToPlay">Free to play</em></span></a>
-          <a class="chart-item" href="./player.html?game=sketchbound"><b>2</b><img src="./art/sketchbound-front.webp" alt=""><span><strong>Sketchbound</strong><small data-i18n="sketchSubtitle">Hand-drawn platformer</small><em data-i18n="freeToPlay">Free to play</em></span></a>
-          <a class="chart-item" href="./player.html?game=dmz-3d"><b>3</b><img src="./art/dmz-3d-front.webp" alt=""><span><strong>EXFIL ZERO</strong><small data-i18n="exfilSubtitle">3D DMZ survival</small><em data-i18n="freeToPlay">Free to play</em></span></a>
-          <a class="chart-item" href="./player.html?game=dmz-2b"><b>4</b><img src="./art/dmz-2b-front.webp" alt=""><span><strong>DMZ 2D</strong><small data-i18n="dmz2Subtitle">Pixel extraction</small><em data-i18n="freeToPlay">Free to play</em></span></a>
-          <a class="chart-item" href="./player.html?game=kanji-quiz"><b>5</b><img src="./art/kanji-quiz-front.png" alt=""><span><strong>Kanji Quiz</strong><small data-i18n="kanjiSubtitle">Grades 1–6 kanji</small><em data-i18n="freeToPlay">Free to play</em></span></a>
-          <a class="chart-item" href="./player.html?game=bravocado"><b>6</b><img src="./art/bravocado-front.webp" alt=""><span><strong>Bravocado</strong><small data-i18n="bravoSubtitle">Grove survivor</small><em data-i18n="freeToPlay">Free to play</em></span></a>
-          <a class="chart-item" href="./player.html?game=manabi-cup"><b>7</b><img src="./art/manabi-cup-front.webp" alt=""><span><strong>Manabi Cup</strong><small data-i18n="cupSubtitle">Grade 1–6 math game</small><em data-i18n="freeToPlay">Free to play</em></span></a>
-          <a class="chart-item" href="./player.html?game=dead-center"><b>8</b><img src="./art/dead-center-front.webp" alt=""><span><strong>Dead Center</strong><small data-i18n="deadSubtitle">Survive the night</small><em data-i18n="freeToPlay">Free to play</em></span></a>
-        </div>
-      </section>
-      <footer class="site-footer"><a class="footer-brand" href="./"><img src="./art/shitaky/poses/thumbs-up.webp?v=1" alt="">Shitaky Games</a><span data-i18n="footerLine">Find a game. Have fun. Come back for more.</span></footer>
+      <footer class="site-footer"><a class="footer-brand" href="./"><img src="./art/shitaky/poses/thumbs-up.webp?v=1" alt="">Shitaky Games</a></footer>
     </div>
-    <dialog class="settings-dialog" id="settings-dialog" aria-labelledby="settings-title">
-      <div class="settings-content">
-        <div class="request-heading"><div><small>SHITAKY GAMES</small><h2 id="settings-title" data-i18n="settings">Settings</h2></div><button id="settings-close" class="request-close" type="button" aria-label="Close settings" data-i18n-aria="closeSettings">×</button></div>
-        <p class="settings-intro" data-i18n="settingsIntro">Choose how Shitaky Games looks and controls. Your choices are saved on this device.</p>
-        <label for="settings-language" data-i18n="language">Language</label>
-        <select id="settings-language"><option value="auto" data-i18n="automatic">Automatic</option><option value="en">English</option><option value="ja">日本語</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option></select>
-        <label for="settings-device" data-i18n="device">Controls / device</label>
-        <select id="settings-device"><option value="auto" data-i18n="automatic">Automatic</option><option value="keyboard" data-i18n="keyboard">Keyboard</option><option value="touch" data-i18n="touch">Touch screen</option><option value="controller" data-i18n="controller">Controller</option></select>
-        <p class="settings-device-status" id="settings-device-status" role="status"></p>
-        <div class="settings-options"><label><input id="settings-large-text" type="checkbox"><span data-i18n="largeText">Larger text</span></label><label><input id="settings-high-contrast" type="checkbox"><span data-i18n="highContrast">High contrast</span></label><label><input id="settings-reduce-motion" type="checkbox"><span data-i18n="reduceMotion">Reduce motion</span></label></div>
-        <div class="settings-actions"><button id="settings-fullscreen" type="button" data-i18n="fullscreen">Full screen</button><button id="settings-reset" type="button" data-i18n="resetSettings">Reset settings</button></div>
-        <p class="settings-scope" data-i18n="settingsScope">These settings change the Shitaky Games gallery. Each game may have its own controls and language options.</p>
-      </div>
-    </dialog>
-    
+    <dialog class="settings-dialog" id="settings-dialog" aria-labelledby="settings-title"><div class="settings-content">
+      <div class="request-heading"><div><small>SHITAKY GAMES</small><h2 id="settings-title" data-i18n="settings">Settings</h2></div><button id="settings-close" class="request-close" type="button" aria-label="Close settings" data-i18n-aria="closeSettings">×</button></div>
+      <p class="settings-intro" data-i18n="settingsIntro">Choose how Shitaky Games looks and controls. Your choices are saved on this device.</p>
+      <label for="settings-language" data-i18n="language">Language</label>
+      <select id="settings-language"><option value="auto" data-i18n="automatic">Automatic</option><option value="en">English</option><option value="ja">日本語</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option></select>
+      <label for="settings-device" data-i18n="device">Controls / device</label>
+      <select id="settings-device"><option value="auto" data-i18n="automatic">Automatic</option><option value="keyboard" data-i18n="keyboard">Keyboard</option><option value="touch" data-i18n="touch">Touch screen</option><option value="controller" data-i18n="controller">Controller</option></select>
+      <p class="settings-device-status" id="settings-device-status" role="status"></p>
+      <div class="settings-options"><label><input id="settings-large-text" type="checkbox"><span data-i18n="largeText">Larger text</span></label><label><input id="settings-high-contrast" type="checkbox"><span data-i18n="highContrast">High contrast</span></label><label><input id="settings-reduce-motion" type="checkbox"><span data-i18n="reduceMotion">Reduce motion</span></label></div>
+      <div class="settings-actions"><button id="settings-fullscreen" type="button" data-i18n="fullscreen">Full screen</button><button id="settings-reset" type="button" data-i18n="resetSettings">Reset settings</button></div>
+      <p class="settings-scope" data-i18n="settingsScope">These settings change Shitaky Games.</p>
+    </div></dialog>
   </main>
 </body>
 </html>
