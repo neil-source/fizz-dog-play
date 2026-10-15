@@ -4,27 +4,45 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Shitaky Games">
+  <meta name="description" content="Explore original game ideas and concept art from Shitaky Games.">
   <title>Shitaky Games</title>
-  <link rel="icon" type="image/png" href="./art/shitaky/mascot-plush-v2.png">
-  <link rel="stylesheet" href="./styles.css?v=7">
+  <link rel="icon" type="image/png" href="./art/shitaky/mascot-plush-v3.png">
+  <link rel="stylesheet" href="./styles.css?v=8">
   <script src="./settings.js?v=4" defer></script>
+  <script src="./concepts.js?v=1" defer></script>
 </head>
 <body>
   <main class="game-shell" aria-label="Shitaky Games">
     <header class="site-header"><div class="header-inner">
-      <a class="brand" href="./" aria-label="Shitaky Games home"><img src="./art/shitaky/mascot-plush-v2.png" alt=""><span>Shitaky Games</span></a>
+      <a class="brand" href="./" aria-label="Shitaky Games home"><img src="./art/shitaky/mascot-plush-v3.png" alt=""><span>Shitaky Games</span></a>
       <div class="header-actions"><button class="settings-trigger" id="settings-trigger" type="button" aria-label="Settings" data-i18n-aria="settings"><span aria-hidden="true">⚙</span><span class="settings-label" data-i18n="settings">Settings</span></button></div>
     </div></header>
     <div class="site-content">
-      <section class="empty-store" aria-labelledby="empty-title">
-        <img src="./art/shitaky/mascot-plush-v2.png" alt="Shitaky, the round red plush website mascot with a small game tile patch">
-        <span class="empty-count" data-i18n="gameCount">0 games</span>
-        <h1 id="empty-title" data-i18n="emptyTitle">No games here right now</h1>
-        <p data-i18n="emptyDescription">Shitaky Games is empty for now.</p>
+      <section class="showcase-hero" aria-labelledby="showcase-title">
+        <div class="showcase-copy">
+          <span class="showcase-eyebrow" data-concept-i18n="heroEyebrow">FROM SHITAKY GAMES</span>
+          <h1 id="showcase-title" data-concept-i18n="heroTitle">Little worlds. Big feelings.</h1>
+          <p data-concept-i18n="heroBody">Meet a few playful worlds we are dreaming up. Browse the art, find a favorite, and see what each game could become.</p>
+          <span class="showcase-status"><span class="status-dot" aria-hidden="true"></span><span data-concept-i18n="heroStatus">4 original game concepts</span></span>
+        </div>
+        <img class="showcase-mascot" src="./art/shitaky/mascot-plush-v3.png" alt="Shitaky, the round red mascot made from stitched fleece">
       </section>
-      <footer class="site-footer"><a class="footer-brand" href="./"><img src="./art/shitaky/mascot-plush-v2.png" alt="">Shitaky Games</a></footer>
+      <section class="concept-section" aria-labelledby="concept-title">
+        <div class="concept-heading"><div><span class="section-kicker" data-concept-i18n="sectionEyebrow">THE DRAWING BOARD</span><h2 id="concept-title" data-concept-i18n="sectionTitle">Explore the ideas</h2></div><span class="concept-total" data-concept-i18n="conceptCount">4 concepts</span></div>
+        <div class="concept-grid">
+          <button class="concept-card" type="button" data-concept="cloud-post" aria-label="View Cloud Post concept"><span class="concept-art"><img src="./art/concepts/cloud-post.jpg" alt="Orange mail glider above floating villages" loading="lazy"></span><span class="concept-card-info"><strong>Cloud Post</strong><span data-concept-genre="cloud-post">Cozy adventure</span></span><span class="concept-chip" data-concept-i18n="conceptLabel">Concept</span></button>
+          <button class="concept-card" type="button" data-concept="buttonwood" aria-label="View Buttonwood concept"><span class="concept-art"><img src="./art/concepts/buttonwood.jpg" alt="Felt woodland friends beside a lantern" loading="lazy"></span><span class="concept-card-info"><strong>Buttonwood</strong><span data-concept-genre="buttonwood">Craft puzzle</span></span><span class="concept-chip" data-concept-i18n="conceptLabel">Concept</span></button>
+          <button class="concept-card" type="button" data-concept="neon-noodles" aria-label="View Neon Noodles concept"><span class="concept-art"><img src="./art/concepts/neon-noodles.jpg" alt="Chef tossing noodles at a neon-lit street stall" loading="lazy"></span><span class="concept-card-info"><strong>Neon Noodles</strong><span data-concept-genre="neon-noodles">Arcade cooking</span></span><span class="concept-chip" data-concept-i18n="conceptLabel">Concept</span></button>
+          <button class="concept-card" type="button" data-concept="tideglass" aria-label="View Tideglass concept"><span class="concept-art"><img src="./art/concepts/tideglass.jpg" alt="Diving bell exploring a colorful coral reef" loading="lazy"></span><span class="concept-card-info"><strong>Tideglass</strong><span data-concept-genre="tideglass">Ocean adventure</span></span><span class="concept-chip" data-concept-i18n="conceptLabel">Concept</span></button>
+        </div>
+        <p class="concept-note" data-concept-i18n="conceptNote">These are concept previews, not playable games yet.</p>
+      </section>
+      <footer class="site-footer"><a class="footer-brand" href="./"><img src="./art/shitaky/mascot-plush-v3.png" alt="">Shitaky Games</a><span data-concept-i18n="footerNote">Made for curious players.</span></footer>
     </div>
+    <dialog class="concept-dialog" id="concept-dialog" aria-labelledby="concept-dialog-title"><div class="concept-dialog-layout">
+      <img id="concept-dialog-art" src="./art/concepts/cloud-post.jpg" alt="">
+      <div class="concept-dialog-copy"><button class="concept-dialog-close" id="concept-dialog-close" type="button" aria-label="Close concept details">×</button><span class="section-kicker" data-concept-i18n="detailEyebrow">GAME CONCEPT</span><h2 id="concept-dialog-title"></h2><p class="concept-dialog-genre" id="concept-dialog-genre"></p><p class="concept-dialog-description" id="concept-dialog-description"></p><p class="concept-dialog-note" data-concept-i18n="detailNote">This is an idea and original concept art. There is no playable build yet.</p></div>
+    </div></dialog>
     <dialog class="settings-dialog" id="settings-dialog" aria-labelledby="settings-title"><div class="settings-content">
       <div class="request-heading"><div><small>SHITAKY GAMES</small><h2 id="settings-title" data-i18n="settings">Settings</h2></div><button id="settings-close" class="request-close" type="button" aria-label="Close settings" data-i18n-aria="closeSettings">×</button></div>
       <p class="settings-intro" data-i18n="settingsIntro">Choose how Shitaky Games looks and controls. Your choices are saved on this device.</p>
